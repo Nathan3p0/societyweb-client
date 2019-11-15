@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Member Login Component Rendering Tests renders to UI as expected 1`] = `
+<header>
+  <h2>
+    Keep Your Team Connected!
+  </h2>
+  <p>
+    Join Society Web...
+  </p>
+  <button>
+    Have an invite code?
+  </button>
+  <form>
+    <h3>
+      New Member Signup
+    </h3>
+    <label
+      htmlFor="fullname"
+    >
+      Full Name:
+    </label>
+    <input
+      id="fullname"
+      name="full_name"
+      required={true}
+      type="text"
+    />
+    <label
+      htmlFor="username"
+    >
+      Username:
+    </label>
+    <input
+      id="username"
+      name="username"
+      required={true}
+      type="text"
+    />
+    <label
+      htmlFor="password"
+    >
+      Password:
+    </label>
+    <input
+      id="password"
+      name="password"
+      required={true}
+      type="password"
+    />
+    <label
+      htmlFor="email"
+    >
+      Email:
+    </label>
+    <input
+      id="email"
+      name="email"
+      required={true}
+      type="text"
+    />
+    <label
+      htmlFor="phone"
+    >
+      Phone Number:
+    </label>
+    <input
+      id="phone"
+      name="phone"
+      required={true}
+      type="tel"
+    />
+    <label
+      htmlFor="invite_code"
+    >
+      Invite Code:
+    </label>
+    <input
+      id="invite_code"
+      name="invite_code"
+      required={true}
+      type="text"
+    />
+    <button
+      type="submit"
+    >
+      Sign Up
+    </button>
+  </form>
+</header>
+`;

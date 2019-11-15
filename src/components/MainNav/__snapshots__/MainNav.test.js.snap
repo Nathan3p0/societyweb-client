@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Member Login Component Rendering Tests renders to UI as expected 1`] = `
+<nav
+  className="main__nav"
+>
+  <h1>
+    SocietyWeb
+  </h1>
+  <button>
+    Leader Login
+  </button>
+  <button>
+    Member Login
+  </button>
+  <button>
+    Logout
+  </button>
+</nav>
+`;

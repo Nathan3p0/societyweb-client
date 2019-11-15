@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Member Login Component Rendering Tests renders to UI as expected 1`] = `
+<form>
+  <h3>
+    Team Member Login
+  </h3>
+  <label
+    htmlFor="username"
+  >
+    Username:
+  </label>
+  <input
+    id="username"
+    name="username"
+    required={true}
+    type="text"
+  />
+  <label
+    htmlFor="password"
+  >
+    Password:
+  </label>
+  <input
+    id="password"
+    name="password"
+    required={true}
+    type="password"
+  />
+  <button
+    type="submit"
+  >
+    Login
+  </button>
+</form>
+`;
