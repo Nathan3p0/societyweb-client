@@ -7,6 +7,7 @@ class LandingPage extends Component {
         this.state = {}
     }
     render() {
+        console.log(this.props)
         return (
             <>
                 <Header />
