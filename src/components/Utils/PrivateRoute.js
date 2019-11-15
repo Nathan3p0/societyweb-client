@@ -1,9 +1,9 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import TokenService from '../../services/token-service'
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import TokenService from '../../services/token-service';
 
 export default function PrivateRoute({ component, ...props }) {
-    const Component = component
+    const Component = component;
     return (
         <Route
             {...props}
@@ -12,11 +12,11 @@ export default function PrivateRoute({ component, ...props }) {
                     ? <Component {...componentProps} />
                     : <Redirect
                         to={{
-                            pathname: '/login',
+                            pathname: '/',
                             state: { from: componentProps.location }
                         }}
                     />
             )}
         />
-    )
+    );
 }
