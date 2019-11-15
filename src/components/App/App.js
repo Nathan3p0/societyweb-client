@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import MainNav from '../MainNav/MainNav';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import PrivateRoute from '../Utils/PrivateRoute';
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import LandingPage from '../../routes/LandingPage/LandingPage';
 import AdminDashboard from '../../routes/AdminDashboard/AdminDashboard';
+import MemberDashboard from '../../routes/MemberDashboard/MemberDashboard';
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class App extends Component {
         <Switch>
           <PublicOnlyRoute exact path={'/'} component={LandingPage} />
           <PrivateRoute path={'/admin'} component={AdminDashboard} />
+          <PrivateRoute path={'/member'} component={MemberDashboard} />
         </Switch>
       </div>
     );

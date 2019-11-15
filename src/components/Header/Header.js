@@ -9,7 +9,8 @@ const Header = (props) => {
             <h2>Keep Your Team Connected!</h2>
             <p>Join Society Web...</p>
             <button>Have an invite code?</button>
-            <LeaderLogin leaderLoginSuccess={props.leaderLoginSuccess} memberLoginSuccess={props.memberLoginSuccess} />
+            <LeaderLogin leaderLoginSuccess={props.leaderLoginSuccess} />
+            <MemberLogin memberLoginSuccess={props.memberLoginSuccess} />
         </header>
     );
 }

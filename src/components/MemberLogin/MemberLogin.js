@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AuthApiService from '../../services/auth-api-service';
 
 class MemberLogin extends Component {
     static defaultProps = {
