@@ -26,7 +26,7 @@ class App extends Component {
       <div className='App'>
         <MainNav toggleLeader={this.handleLeaderLoginToggle} />
         <Switch>
-          <PublicOnlyRoute path={'/'} component={LandingPage} />
+          <PublicOnlyRoute exact path={'/'} component={LandingPage} />
           <PrivateRoute path={'/admin'} component={AdminDashboard} />
         </Switch>
       </div>

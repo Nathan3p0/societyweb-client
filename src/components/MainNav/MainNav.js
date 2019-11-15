@@ -4,6 +4,10 @@ import TokenService from '../../services/token-service';
 class MainNav extends Component {
     state = {}
 
+    handleLogout = () => {
+        TokenService.clearAuthToken();
+    }
+
     renderLoginLink = () => {
         return (
             <div className="Main__nav-login">
@@ -16,7 +20,7 @@ class MainNav extends Component {
     renderLogoutLink = () => {
         return (
             < div className="Main__nav-logout" >
-                <button>Logout</button>
+                <button onClick={this.handleLogout}>Logout</button>
             </div >
         )
     }

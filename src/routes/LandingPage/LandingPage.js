@@ -2,15 +2,27 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 
 class LandingPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
+
+    state = {
+
     }
+
+    handleLeaderLoginSuccess = (id) => {
+        const { location, history } = this.props;
+        const destination = (location.state || {}).from || `/admin/${id}`;
+        history.push(destination);
+    }
+
+    handleMemberLoginSuccess = (id) => {
+        const { location, history } = this.props;
+        const destination = (location.state || {}).from || `/member/${id}`;
+        history.push(destination);
+    }
+
     render() {
-        console.log(this.props)
         return (
             <>
-                <Header />
+                <Header leaderLoginSuccess={this.handleLeaderLoginSuccess} memberLoginSuccess={this.handleMemberLoginSuccess} />
             </>
         );
     }
