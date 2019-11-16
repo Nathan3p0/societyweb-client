@@ -5,6 +5,7 @@ const EventsList = (props) => {
     const { events } = props;
     const listItems = events.map((event) =>
         <EventListItem key={event.id}
+            id={event.id}
             date={event.event_date}
             name={event.event_name}
             time={event.event_time}

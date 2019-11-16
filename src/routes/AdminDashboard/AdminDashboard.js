@@ -4,13 +4,10 @@ import AdminDashboardNav from '../../components/AdminDashboardNav/AdminDashboard
 import TeamStatsWidget from '../../components/TeamStatsWidget/TeamStatsWidget';
 import InviteWidget from '../../components/InviteWidget/InviteWidget';
 import EventsList from '../../components/EventsList/EventsList';
+import EventPage from '../../components/EventPage/EventPage';
 
 class AdminDashboard extends Component {
     state = {}
-
-    [
-        { event_date: '12/01/2019', event_time: '12:00:00', event_name: 'Slime Fest 2019', event_description: 'The biggest slime convention in the world.', event_group: 1 }
-    ]
 
     render() {
         const tempEventsObjects = [
@@ -38,12 +35,15 @@ class AdminDashboard extends Component {
                 <main>
                     <Switch>
                         <Route exact path="/admin">
-                            <TeamStatsWidget name={'Girl Scout Troop 45093'} />
+                            <TeamStatsWidget name={'Girl Scout Troop 45093'} totalEvents={2} totalMembers={1} />
                             <EventsList events={tempEventsObjects} />
                             <InviteWidget />
                         </Route>
-                        <Route path="/admin/events">
+                        <Route exact path="/admin/events">
                             <EventsList events={tempEventsObjects} />
+                        </Route>
+                        <Route path="/admin/events/:id">
+                            <EventPage />
                         </Route>
                     </Switch>
                 </main>
