@@ -13,16 +13,16 @@ class MainNav extends Component {
 
     renderLoginLink = () => {
         return (
-            <div className="Main__nav-login">
+            <div className="main__nav-login">
                 <button onClick={this.context.leaderLoginToggle}>Leader Login</button>
-                <button>Member Login</button>
+                <button onClick={this.context.memberLoginToggle}>Member Login</button>
             </div>
         )
     }
 
     renderLogoutLink = () => {
         return (
-            < div className="Main__nav-logout" >
+            < div className="main__nav-logout" >
                 <button onClick={this.handleLogout}>Logout</button>
             </div >
         )

@@ -6,6 +6,7 @@ import { Switch } from "react-router-dom";
 import LandingPage from '../../routes/LandingPage/LandingPage';
 import AdminDashboard from '../../routes/AdminDashboard/AdminDashboard';
 import MemberDashboard from '../../routes/MemberDashboard/MemberDashboard';
+import Footer from '../../components/Footer/Footer'
 import LoginInfoContext from '../../context/LoginInfoContext';
 
 class App extends Component {
@@ -20,15 +21,43 @@ class App extends Component {
 
   handleLeaderLoginToggle = () => {
     if (!this.state.leaderLogin) {
-      this.setState({ leaderLogin: !false })
+      this.setState({
+        leaderLogin: true,
+        memberJoin: false,
+        memberLogin: false
+      })
     }
   }
+
+  handleMemberLoginToggle = () => {
+    if (!this.state.memberLogin) {
+      this.setState({
+        leaderLogin: false,
+        memberJoin: false,
+        memberLogin: true
+      })
+    }
+  }
+
+  handleMemberJoinToggle = () => {
+    if (!this.state.memberJoin) {
+      this.setState({
+        leaderLogin: false,
+        memberJoin: true,
+        memberLogin: false
+      })
+    }
+  }
+
+
   render() {
     const value = {
       memberJoin: this.state.memberJoin,
       leaderLogin: this.state.leaderLogin,
       memberLogin: this.state.memberLogin,
-      leaderLoginToggle: this.handleLeaderLoginToggle
+      leaderLoginToggle: this.handleLeaderLoginToggle,
+      memberLoginToggle: this.handleMemberLoginToggle,
+      memberJoinToggle: this.handleMemberJoinToggle
     }
     return (
       <div className='App'>
@@ -39,6 +68,7 @@ class App extends Component {
             <PrivateRoute path={'/admin'} component={AdminDashboard} />
             <PrivateRoute path={'/member'} component={MemberDashboard} />
           </Switch>
+          <Footer />
         </LoginInfoContext.Provider>
       </div>
     );

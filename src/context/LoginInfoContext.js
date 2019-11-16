@@ -1,10 +1,5 @@
 import React from 'react';
 
-const LoginInfoContext = React.createContext({
-    memberJoin: false,
-    leaderLogin: false,
-    memberLogin: false,
-    leaderLoginToggle: () => { }
-});
+const LoginInfoContext = React.createContext();
 
 export default LoginInfoContext;

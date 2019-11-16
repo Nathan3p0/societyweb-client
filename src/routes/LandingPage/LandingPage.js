@@ -7,15 +7,15 @@ class LandingPage extends Component {
 
     }
 
-    handleLeaderLoginSuccess = (id) => {
+    handleLeaderLoginSuccess = () => {
         const { location, history } = this.props;
-        const destination = (location.state || {}).from || `/admin/${id}`;
+        const destination = (location.state || {}).from || `/admin`;
         history.push(destination);
     }
 
-    handleMemberLoginSuccess = (id) => {
+    handleMemberLoginSuccess = () => {
         const { location, history } = this.props;
-        const destination = (location.state || {}).from || `/member/${id}`;
+        const destination = (location.state || {}).from || `/member`;
         history.push(destination);
     }
 

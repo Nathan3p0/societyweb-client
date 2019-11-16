@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
+import LoginInfoContext from '../../context/LoginInfoContext';
 
 class MemberLogin extends Component {
     static defaultProps = {
         memberLoginSuccess: () => { }
     }
+
+    static contextType = LoginInfoContext;
 
     state = {
         error: null
@@ -44,6 +47,7 @@ class MemberLogin extends Component {
                 <label htmlFor="password">Password:</label>
                 <input type="password" name="password" id="password" required />
                 <button type="submit">Login</button>
+                <a href="#" onClick={this.context.memberJoinToggle}>Not a member? Click here to join.</a>
             </form>
         );
     }
