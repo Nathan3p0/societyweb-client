@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
+import LoginInfoContext from '../../context/LoginInfoContext';
 
 class MainNav extends Component {
+    static contextType = LoginInfoContext;
+
     state = {}
 
     handleLogout = () => {
@@ -11,7 +14,7 @@ class MainNav extends Component {
     renderLoginLink = () => {
         return (
             <div className="Main__nav-login">
-                <button>Leader Login</button>
+                <button onClick={this.context.leaderLoginToggle}>Leader Login</button>
                 <button>Member Login</button>
             </div>
         )

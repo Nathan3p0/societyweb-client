@@ -6,6 +6,7 @@ import { Switch } from "react-router-dom";
 import LandingPage from '../../routes/LandingPage/LandingPage';
 import AdminDashboard from '../../routes/AdminDashboard/AdminDashboard';
 import MemberDashboard from '../../routes/MemberDashboard/MemberDashboard';
+import LoginInfoContext from '../../context/LoginInfoContext';
 
 class App extends Component {
   constructor(props) {
@@ -23,14 +24,22 @@ class App extends Component {
     }
   }
   render() {
+    const value = {
+      memberJoin: this.state.memberJoin,
+      leaderLogin: this.state.leaderLogin,
+      memberLogin: this.state.memberLogin,
+      leaderLoginToggle: this.handleLeaderLoginToggle
+    }
     return (
       <div className='App'>
-        <MainNav toggleLeader={this.handleLeaderLoginToggle} />
-        <Switch>
-          <PublicOnlyRoute exact path={'/'} component={LandingPage} />
-          <PrivateRoute path={'/admin'} component={AdminDashboard} />
-          <PrivateRoute path={'/member'} component={MemberDashboard} />
-        </Switch>
+        <LoginInfoContext.Provider value={value}>
+          <MainNav />
+          <Switch>
+            <PublicOnlyRoute exact path={'/'} component={LandingPage} />
+            <PrivateRoute path={'/admin'} component={AdminDashboard} />
+            <PrivateRoute path={'/member'} component={MemberDashboard} />
+          </Switch>
+        </LoginInfoContext.Provider>
       </div>
     );
   }
