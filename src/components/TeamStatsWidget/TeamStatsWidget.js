@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TeamStatsWidget = () => {
+const TeamStatsWidget = (props) => {
     return (
         <section>
-            <h3>Team Name Here</h3>
+            <h3>{props.name}</h3>
             <p>Need to figure out stats to display</p>
         </section>
     );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch } from "react-router-dom";
 import AdminDashboardNav from '../../components/AdminDashboardNav/AdminDashboardNav';
 import TeamStatsWidget from '../../components/TeamStatsWidget/TeamStatsWidget';
 import InviteWidget from '../../components/InviteWidget/InviteWidget';
@@ -35,9 +36,16 @@ class AdminDashboard extends Component {
             <>
                 <AdminDashboardNav />
                 <main>
-                    <TeamStatsWidget />
-                    <EventsList events={tempEventsObjects} />
-                    <InviteWidget />
+                    <Switch>
+                        <Route exact path="/admin">
+                            <TeamStatsWidget name={'Girl Scout Troop 45093'} />
+                            <EventsList events={tempEventsObjects} />
+                            <InviteWidget />
+                        </Route>
+                        <Route path="/admin/events">
+                            <EventsList events={tempEventsObjects} />
+                        </Route>
+                    </Switch>
                 </main>
             </>
         );
