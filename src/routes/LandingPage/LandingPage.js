@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
+import NewTeamSignUpSection from '../../components/NewTeamSignUpSection/NewTeamSignUpSection';
 
 class LandingPage extends Component {
 
@@ -23,6 +24,9 @@ class LandingPage extends Component {
         return (
             <>
                 <Header leaderLoginSuccess={this.handleLeaderLoginSuccess} memberLoginSuccess={this.handleMemberLoginSuccess} />
+                <main>
+                    <NewTeamSignUpSection />
+                </main>
             </>
         );
     }

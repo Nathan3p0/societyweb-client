@@ -17,6 +17,18 @@ const AuthApiService = {
                 TokenService.saveAuthToken(res.authToken);
                 return res;
             })
+    },
+    postNewTeam(newTeam) {
+        return fetch(`${config.API_ENDPOINT}/signup/admin`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newTeam)
+        })
+            .then(res =>
+                (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
+            )
     }
 }
 
