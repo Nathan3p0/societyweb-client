@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewTeamSignupForm from '../NewTeamSignupForm/NewTeamSignupForm';
 import AuthApiService from '../../services/auth-api-service';
+import './NewTeamSignUpSection.css'
 
 class NewTeamSignUpSection extends Component {
     state = {
@@ -27,7 +28,6 @@ class NewTeamSignUpSection extends Component {
 
         AuthApiService.postNewTeam(newTeam)
             .then(res => {
-                console.log(res)
                 fullname.value = '';
                 username.value = '';
                 password.value = '';
@@ -48,14 +48,14 @@ class NewTeamSignUpSection extends Component {
     render() {
         const { error, success } = this.state
         return (
-            <section>
-                <div>
+            <section className="newSignup__section">
+                <div className="newSignup__section-benefits">
                     <h3>The benefits of Society Web</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error sed, explicabo molestiae iste consectetur mollitia voluptate voluptatum, est eius modi saepe, ad exercitationem numquam harum quo quasi asperiores repellat incidunt ab fuga sit id sapiente aspernatur similique! Nostrum enim quibusdam voluptatum ea velit odit impedit consequuntur totam adipisci, mollitia eos!</p>
                 </div>
-                <div>
+                <div className="newSignup__section-form">
                     <h3>New Team Signup</h3>
-                    {error && <p>{error}</p>}
+                    {error && <p className="error">{error}</p>}
                     {success && <p>Signup was successful. Click Leader Login at the top.</p>}
                     <NewTeamSignupForm handleSubmit={this.handleTeamSignupSubmit} />
                 </div>

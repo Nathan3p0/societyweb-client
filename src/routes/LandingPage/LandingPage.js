@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import NewTeamSignUpSection from '../../components/NewTeamSignUpSection/NewTeamSignUpSection';
+import LoginInfoContext from '../../context/LoginInfoContext';
 
 class LandingPage extends Component {
+    static contextType = LoginInfoContext;
 
     state = {
 

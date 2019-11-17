@@ -7,6 +7,7 @@ import EventsList from '../../components/EventsList/EventsList';
 import EventPage from '../../components/EventPage/EventPage';
 
 class AdminDashboard extends Component {
+
     state = {}
 
     render() {

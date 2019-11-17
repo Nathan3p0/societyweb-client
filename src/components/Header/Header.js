@@ -3,6 +3,7 @@ import LeaderLogin from '../LeaderLogin/LeaderLogin';
 import MemberLogin from '../MemberLogin/MemberLogin';
 import NewMemberSignUp from '../NewMemberSignUpForm/NewMemberSignUp'
 import LoginInfoContext from '../../context/LoginInfoContext';
+import './Header.css'
 
 const Header = (props) => {
     const loginInfo = useContext(LoginInfoContext)
@@ -18,10 +19,14 @@ const Header = (props) => {
     }
 
     return (
-        <header>
-            <h2>Keep Your Team Connected!</h2>
-            <p>Join Society Web...</p>
-            {loginDisplay}
+        <header className="landingpage__header">
+            <div>
+                <h2>Keep Your Team Connected!</h2>
+                <p>Join Society Web...</p>
+            </div>
+            <div>
+                {loginDisplay}
+            </div>
         </header>
     );
 }

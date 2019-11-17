@@ -8,6 +8,7 @@ import AdminDashboard from '../../routes/AdminDashboard/AdminDashboard';
 import MemberDashboard from '../../routes/MemberDashboard/MemberDashboard';
 import Footer from '../../components/Footer/Footer'
 import LoginInfoContext from '../../context/LoginInfoContext';
+import './App.css'
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class App extends Component {
     this.state = {
       memberJoin: false,
       leaderLogin: false,
-      memberLogin: false
+      memberLogin: false,
+      userInfo: null
     }
   }
 
@@ -59,8 +61,9 @@ class App extends Component {
       memberLoginToggle: this.handleMemberLoginToggle,
       memberJoinToggle: this.handleMemberJoinToggle
     }
+
     return (
-      <div className='App'>
+      <div className='container'>
         <LoginInfoContext.Provider value={value}>
           <MainNav />
           <Switch>

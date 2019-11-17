@@ -1,0 +1,21 @@
+.newSignup__section {
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem;
+    flex-wrap: wrap;
+    background: #ccc;
+}
+
+.newSignup__section-benefits {
+    padding-left: 2rem;
+    max-width: 500px;
+    width: 100%;
+    align-self: flex-start;
+    justify-self: center;
+    margin-bottom: 1rem;
+}
+
+.newSignup__section-form {
+    max-width: 500px;
+    width: 100%;
+}

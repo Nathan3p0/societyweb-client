@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
+import LoginInfoContext from '../../context/LoginInfoContext';
 
 class LeaderLogin extends Component {
     static defaultProps = {
         leaderLoginSuccess: () => { }
     }
+
+    static contextType = LoginInfoContext;
 
     state = {
         error: null
@@ -26,6 +29,7 @@ class LeaderLogin extends Component {
                 console.log(res)
                 username.value = '';
                 password.value = '';
+                this.context.updateUserInfo();
                 this.props.leaderLoginSuccess();
             })
             .catch(res => {

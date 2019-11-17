@@ -1,0 +1,32 @@
+.flex-outer li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: .5rem
+}
+
+.flex-outer > li > label {
+    flex: 1 0 100px;
+    /* max-width: 150px; */
+}
+
+.flex-outer > li > label + * {
+    flex: 1 0 220px;
+    /* max-width: 250px; */
+}
+
+.flex-outer li button {
+    margin-left: auto;
+    padding: 8px 16px;
+    border: none;
+    background: #333333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+}
+
+.flex-outer li input {
+    padding: 15px;
+    border: none;
+}

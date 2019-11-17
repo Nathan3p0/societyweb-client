@@ -1,4 +1,5 @@
 import config from '../config';
+import jwtDecode from 'jwt-decode';
 
 const TokenService = {
     saveAuthToken(token) {
@@ -12,6 +13,12 @@ const TokenService = {
     },
     hasAuthToken() {
         return !!this.getAuthToken();
+    },
+    parseJwt(jwt) {
+        return jwtDecode(jwt);
+    },
+    readJwtToken() {
+        return TokenService.parseJwt(TokenService.getAuthToken());
     }
 }
 
