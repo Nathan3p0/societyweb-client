@@ -7,4 +7,12 @@ const EventsListItem = (props) => {
     );
 }
 
+EventsListItem.defaultProps = {
+    id: 0,
+    date: '12/12/79',
+    name: 'Default Name',
+    time: '11:11:11',
+    location: 'Default Location'
+}
+
 export default EventsListItem;

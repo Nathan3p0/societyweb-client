@@ -8,6 +8,7 @@ import AdminDashboard from '../../routes/AdminDashboard/AdminDashboard';
 import MemberDashboard from '../../routes/MemberDashboard/MemberDashboard';
 import Footer from '../../components/Footer/Footer'
 import LoginInfoContext from '../../context/LoginInfoContext';
+import AdminApiService from '../../services/admin-api-service';
 import './App.css'
 
 class App extends Component {
@@ -17,7 +18,8 @@ class App extends Component {
       memberJoin: false,
       leaderLogin: false,
       memberLogin: false,
-      userInfo: null
+      userInfo: null,
+      events: []
     }
   }
 
@@ -51,6 +53,23 @@ class App extends Component {
     }
   }
 
+  fetchAllEvents = () => {
+    AdminApiService.getAllEvents()
+      .then(events => {
+        this.setState((state) => ({
+          events: events.events
+        })
+        )
+
+        console.log('I ran')
+      })
+      .catch(res =>
+        this.setState({
+          error: res.error
+        })
+      )
+  }
+
 
   render() {
     const value = {
@@ -59,7 +78,9 @@ class App extends Component {
       memberLogin: this.state.memberLogin,
       leaderLoginToggle: this.handleLeaderLoginToggle,
       memberLoginToggle: this.handleMemberLoginToggle,
-      memberJoinToggle: this.handleMemberJoinToggle
+      memberJoinToggle: this.handleMemberJoinToggle,
+      fetchAllEvents: this.fetchAllEvents,
+      events: this.state.events
     }
 
     return (

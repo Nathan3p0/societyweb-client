@@ -26,6 +26,12 @@
     border-radius: 2px;
 }
 
+.flex-outer li button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 1px 1px 5px #333333;
+}
+
 .flex-outer li input {
     padding: 15px;
     border: none;

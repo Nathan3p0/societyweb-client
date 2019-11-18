@@ -7,8 +7,6 @@ class LeaderLogin extends Component {
         leaderLoginSuccess: () => { }
     }
 
-    static contextType = LoginInfoContext;
-
     state = {
         error: null
     }
@@ -29,7 +27,6 @@ class LeaderLogin extends Component {
                 console.log(res)
                 username.value = '';
                 password.value = '';
-                this.context.updateUserInfo();
                 this.props.leaderLoginSuccess();
             })
             .catch(res => {
