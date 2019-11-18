@@ -5,30 +5,61 @@ import TeamStatsWidget from '../../components/TeamStatsWidget/TeamStatsWidget';
 import InviteWidget from '../../components/InviteWidget/InviteWidget';
 import EventsList from '../../components/EventsList/EventsList';
 import EventPage from '../../components/EventPage/EventPage';
+import NewEventForm from '../../components/NewEventForm/NewEventForm';
+import AdminApiService from '../../services/admin-api-service';
+import LoginInfoContext from '../../context/LoginInfoContext';
+import './AdminDashboard.css';
 
 class AdminDashboard extends Component {
+    static contextType = LoginInfoContext;
 
-    state = {}
+    state = {
+        error: null
+    }
+
+    handleNewEventSubmit = (e) => {
+        e.preventDefault();
+
+        const { event_name, event_time, event_date, event_location, event_description } = e.target;
+
+        const newEvent = {
+            event_name: event_name.value,
+            event_time: event_time.value,
+            event_date: event_date.value,
+            event_location: event_location.value,
+            event_description: event_description.value
+        }
+
+        this.setState({
+            error: null
+        })
+
+        AdminApiService.postNewEvent(newEvent)
+            .then(res => {
+                console.log(res)
+                event_name.value = '';
+                event_time.value = '';
+                event_date.value = '';
+                event_location.value = '';
+                event_description.value = '';
+                this.handleNewEventSuccess(res.id);
+            })
+            .catch(res => {
+                this.setState({
+                    error: res.error
+                })
+            })
+    }
+
+    handleNewEventSuccess = (id) => {
+        const { location, history } = this.props;
+        const destination = (location.state || {}).from || `/admin/events/${id}`;
+        history.push(destination);
+    }
 
     render() {
-        const tempEventsObjects = [
-            {
-                id: 1,
-                event_date: '12/01/2019',
-                event_time: '12:00:00',
-                event_name: 'Cookie Booth',
-                event_description: 'Cookie booth setup at local store',
-                event_location: 'Harbor Freight'
-            },
-            {
-                id: 2,
-                event_date: '12/05/2019',
-                event_time: '16:40:00',
-                event_name: 'Cookie Booth',
-                event_description: 'Cookie booth setup at local store',
-                event_location: 'Kroger'
-            }
-        ]
+
+        const { events } = this.context
 
         return (
             <>
@@ -36,12 +67,15 @@ class AdminDashboard extends Component {
                 <main>
                     <Switch>
                         <Route exact path="/admin">
-                            <TeamStatsWidget name={'Girl Scout Troop 45093'} totalEvents={2} totalMembers={1} />
-                            <EventsList events={tempEventsObjects} />
+                            <TeamStatsWidget name={'Girl Scout Troop 45093'} totalEvents={events.length} totalMembers={1} />
+                            <EventsList />
                             <InviteWidget />
                         </Route>
                         <Route exact path="/admin/events">
-                            <EventsList events={tempEventsObjects} />
+                            <section className="admin__events">
+                                <EventsList />
+                                <NewEventForm error={this.state.error} handleSubmit={this.handleNewEventSubmit} />
+                            </section>
                         </Route>
                         <Route path="/admin/events/:id">
                             <EventPage />

@@ -1,0 +1,14 @@
+.admin__nav {
+    display: flex;
+    padding: .5rem;
+    background-color: #ddd;
+}
+
+.admin__nav li {
+    margin-left: 1rem;
+    padding: .5rem;
+}
+
+.admin__nav li a {
+    text-decoration: none;
+}

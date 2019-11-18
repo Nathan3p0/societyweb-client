@@ -1,0 +1,7 @@
+.admin__events {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #eee;
+    justify-content: space-around;
+    padding: 1rem;
+}

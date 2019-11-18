@@ -1,3 +1,15 @@
+.admin__events-form {
+    background-color: #f2f2f2;
+    width: 500px;
+    max-width: 100%;
+    padding: 1rem;
+}
+
+.admin__events-form h3 {
+    text-align: center;
+}
+
+
 .flex-outer li {
     display: flex;
     flex-wrap: wrap;
@@ -7,10 +19,12 @@
 
 .flex-outer > li > label {
     flex: 1 0 100px;
+    /* max-width: 150px; */
 }
 
 .flex-outer > li > label + * {
     flex: 1 0 220px;
+    /* max-width: 250px; */
 }
 
 .flex-outer li button {
