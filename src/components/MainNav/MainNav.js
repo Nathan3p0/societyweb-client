@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
 import LoginInfoContext from '../../context/LoginInfoContext';
+import './MainNav.css'
 
 class MainNav extends Component {
     static contextType = LoginInfoContext;
@@ -9,6 +10,7 @@ class MainNav extends Component {
 
     handleLogout = () => {
         TokenService.clearAuthToken();
+        this.context.setLoginStatus();
     }
 
     renderLoginLink = () => {
@@ -31,7 +33,7 @@ class MainNav extends Component {
         return (
             <nav className="main__nav">
                 <h1>SocietyWeb</h1>
-                {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
+                {!this.context.loggedIn ? this.renderLogoutLink() : this.renderLoginLink()}
             </nav>
         );
     }

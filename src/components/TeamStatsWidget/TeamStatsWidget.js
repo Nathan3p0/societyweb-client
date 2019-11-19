@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-import LoginInfoContext from '../../context/LoginInfoContext';
+import TeamInfoContext from '../../context/TeamInfoContext';
 
 const TeamStatsWidget = (props) => {
-    const info = useContext(LoginInfoContext);
-    console.log(info)
+    const team = useContext(TeamInfoContext);
+
     return (
         <section>
             <h3>{props.name}</h3>
             <h3>Welcome !</h3>
             <h4>Current Event Count:</h4>
-            <p>{props.totalEvents}</p>
+            <p>{team.events.length || 0}</p>
             <h4>Active Member Count:</h4>
-            <p>{props.totalMembers}</p>
+            <p>{team.members.length || 0}</p>
         </section>
     );
 }

@@ -27,7 +27,7 @@ const NewEventForm = (props) => {
                     <textarea name="event_description" id="event_description" required />
                 </li>
                 <li>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">Create Event</button>
                 </li>
             </ul>
         </form>

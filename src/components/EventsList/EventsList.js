@@ -12,14 +12,13 @@ class EventsList extends Component {
     }
 
     componentDidMount() {
-        if (this.context.events.length === 0) {
-            this.context.fetchAllEvents();
-        }
+        this.context.fetchAllEvents();
     }
 
     render() {
         const { events } = this.context || [];
-        const listItems = events.map((event) =>
+        let itemAmount = this.props.limit || events.length;
+        const listItems = events.slice(0, itemAmount).map((event) =>
             <EventListItem key={event.id}
                 id={event.id}
                 date={event.event_date}

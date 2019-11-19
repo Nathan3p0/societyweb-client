@@ -8,6 +8,7 @@ import AdminDashboard from '../../routes/AdminDashboard/AdminDashboard';
 import MemberDashboard from '../../routes/MemberDashboard/MemberDashboard';
 import Footer from '../../components/Footer/Footer'
 import LoginInfoContext from '../../context/LoginInfoContext';
+import TeamInfoContext from '../../context/TeamInfoContext';
 import AdminApiService from '../../services/admin-api-service';
 import './App.css'
 
@@ -19,7 +20,10 @@ class App extends Component {
       leaderLogin: false,
       memberLogin: false,
       userInfo: null,
-      events: []
+      events: [],
+      members: [],
+      loggedIn: false,
+      error: null
     }
   }
 
@@ -53,6 +57,20 @@ class App extends Component {
     }
   }
 
+  fetchAllMembers = () => {
+    AdminApiService.getAllMembers()
+      .then(members => {
+        this.setState({
+          members: members.members
+        })
+      })
+      .catch(res => {
+        this.setState({
+          error: res.error
+        })
+      })
+  }
+
   fetchAllEvents = () => {
     AdminApiService.getAllEvents()
       .then(events => {
@@ -70,9 +88,14 @@ class App extends Component {
       )
   }
 
+  setLoginStatus = () => {
+    this.setState(state => ({
+      loggedIn: !state.loggedIn
+    }))
+  }
 
   render() {
-    const value = {
+    const loginValue = {
       memberJoin: this.state.memberJoin,
       leaderLogin: this.state.leaderLogin,
       memberLogin: this.state.memberLogin,
@@ -80,19 +103,30 @@ class App extends Component {
       memberLoginToggle: this.handleMemberLoginToggle,
       memberJoinToggle: this.handleMemberJoinToggle,
       fetchAllEvents: this.fetchAllEvents,
-      events: this.state.events
+      events: this.state.events,
+      loggedIn: this.state.loggedIn,
+      setLoginStatus: this.setLoginStatus
+    }
+
+    const teamValue = {
+      events: this.state.events,
+      members: this.state.members,
+      fetchAllMembers: this.fetchAllMembers,
+      error: this.state.error
     }
 
     return (
       <div className='container'>
-        <LoginInfoContext.Provider value={value}>
-          <MainNav />
-          <Switch>
-            <PublicOnlyRoute exact path={'/'} component={LandingPage} />
-            <PrivateRoute path={'/admin'} component={AdminDashboard} />
-            <PrivateRoute path={'/member'} component={MemberDashboard} />
-          </Switch>
-          <Footer />
+        <LoginInfoContext.Provider value={loginValue}>
+          <TeamInfoContext.Provider value={teamValue}>
+            <MainNav />
+            <Switch>
+              <PublicOnlyRoute exact path={'/'} component={LandingPage} />
+              <PrivateRoute path={'/admin'} component={AdminDashboard} />
+              <PrivateRoute path={'/member'} component={MemberDashboard} />
+            </Switch>
+            <Footer />
+          </TeamInfoContext.Provider>
         </LoginInfoContext.Provider>
       </div>
     );

@@ -3,6 +3,8 @@ import AuthApiService from '../../services/auth-api-service';
 import LoginInfoContext from '../../context/LoginInfoContext';
 
 class LeaderLogin extends Component {
+    static contextType = LoginInfoContext;
+
     static defaultProps = {
         leaderLoginSuccess: () => { }
     }
@@ -27,6 +29,7 @@ class LeaderLogin extends Component {
                 console.log(res)
                 username.value = '';
                 password.value = '';
+                this.context.setLoginStatus();
                 this.props.leaderLoginSuccess();
             })
             .catch(res => {
