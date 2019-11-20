@@ -20,11 +20,11 @@ const Header = (props) => {
 
     return (
         <header className="landingpage__header">
-            <div>
+            <div className="landingpage__header-message">
                 <h2>Keep Your Team Connected!</h2>
                 <p>Join Society Web...</p>
             </div>
-            <div>
+            <div className="landingpage__header-login">
                 {loginDisplay}
             </div>
         </header>

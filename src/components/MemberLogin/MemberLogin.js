@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import LoginInfoContext from '../../context/LoginInfoContext';
+import './MemberLogin.css'
 
 class MemberLogin extends Component {
     static defaultProps = {
@@ -41,13 +42,23 @@ class MemberLogin extends Component {
     render() {
         return (
             <form onSubmit={this.handleMemberLoginSubmit}>
-                <h3>Team Member Login</h3>
-                <label htmlFor="username">Username:</label>
-                <input type="text" name="username" id="username" required />
-                <label htmlFor="password">Password:</label>
-                <input type="password" name="password" id="password" required />
-                <button type="submit">Login</button>
-                <a href="#" onClick={this.context.memberJoinToggle}>Not a member? Click here to join.</a>
+                <ul className="memberLogin__form">
+                    <h3>Team Member Login</h3>
+                    <li>
+                        <label htmlFor="username">Username:</label>
+                        <input type="text" name="username" id="username" required />
+                    </li>
+                    <li>
+                        <label htmlFor="password">Password:</label>
+                        <input type="password" name="password" id="password" required />
+                    </li>
+                    <li>
+                        <button type="submit">Login</button>
+                    </li>
+                    <li>
+                        <a href="#" onClick={this.context.memberJoinToggle}>Not a member? Click here to join.</a>
+                    </li>
+                </ul>
             </form>
         );
     }

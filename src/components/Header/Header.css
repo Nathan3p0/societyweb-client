@@ -2,5 +2,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 50px;
+    padding: 4rem;
+    background-color: #4D2C48;
+    background-size: cover;
+}
+
+.landingpage__header-message {
+    align-self: center;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1;
 }
