@@ -1,5 +1,10 @@
 .main__nav {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1.5rem 2rem;
+    background-color: #26575E;
+}
+
+.main__nav h1 {
+    color: #fff;
 }

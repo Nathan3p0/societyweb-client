@@ -1,0 +1,24 @@
+.eventPage__main {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+.eventPage__event-attending {
+    background-color: #ddd;
+    padding: 1rem;
+}
+
+.eventPage__event-info {
+    padding: 1rem;
+    background-color: #333;
+}
+
+.eventPage__event-info h3 {
+    font-size: 2rem;
+}
+
+.eventPage__event-info button {
+    margin-top: 2rem;
+}

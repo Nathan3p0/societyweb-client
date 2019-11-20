@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import EventListItem from '../EventsListItem/EventsListItem';
-import AdminApiService from '../../services/admin-api-service';
 import LoginInfoContext from '../../context/LoginInfoContext';
+// import EventsTableHeader from '../EventsTableHeader/EventsTableHeader';
+import './EventsList.css'
 
 class EventsList extends Component {
     static contextType = LoginInfoContext;
@@ -12,7 +13,6 @@ class EventsList extends Component {
     }
 
     componentDidMount() {
-        this.context.fetchAllEvents();
     }
 
     render() {
@@ -28,8 +28,9 @@ class EventsList extends Component {
         )
         return (
             <section>
-                <h3>Events</h3>
-                <ul>
+                <h3>Current Events:</h3>
+                <ul className='responsiveTable'>
+                    <EventsTableHeader />
                     {listItems}
                 </ul>
             </section>
@@ -38,3 +39,15 @@ class EventsList extends Component {
 }
 
 export default EventsList;
+
+
+const EventsTableHeader = () => {
+    return (
+        <li className='tableHeader'>
+            <div className='col col-1'>Event Date</div>
+            <div className='col col-2'>Event Name</div>
+            <div className='col col-3'>Event Time</div>
+            <div className='col col-4'>Event Location</div>
+        </li>
+    );
+}

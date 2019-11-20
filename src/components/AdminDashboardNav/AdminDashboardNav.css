@@ -1,7 +1,7 @@
 .admin__nav {
     display: flex;
     padding: .5rem;
-    background-color: #ddd;
+    background-color: #EA6F4D;
 }
 
 .admin__nav li {
@@ -11,4 +11,5 @@
 
 .admin__nav li a {
     text-decoration: none;
+    color: #fff;
 }

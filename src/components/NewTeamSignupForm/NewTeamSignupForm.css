@@ -1,19 +1,19 @@
-.flex-outer li {
+.signup__form li {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     margin-top: .5rem
 }
 
-.flex-outer > li > label {
+.signup__form > li > label {
     flex: 1 0 100px;
 }
 
-.flex-outer > li > label + * {
+.signup__form > li > label + * {
     flex: 1 0 220px;
 }
 
-.flex-outer li button {
+.signup__form li button {
     margin-left: auto;
     padding: 8px 16px;
     border: none;
@@ -24,13 +24,13 @@
     border-radius: 2px;
 }
 
-.flex-outer li button:hover {
+.signup__form li button:hover {
     cursor: pointer;
     transform: scale(1.1);
     box-shadow: 1px 1px 5px #333333;
 }
 
-.flex-outer li input {
+.signup__form li input {
     padding: 15px;
     border: none;
 }

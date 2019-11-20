@@ -4,7 +4,7 @@ import './NewTeamSignupForm.css';
 const NewTeamSignupForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <ul className="flex-outer">
+            <ul className="signup__form">
                 <li>
                     <label htmlFor="fullname">Full Name:</label>
                     <input type="text" name="full_name" id="fullname" required />

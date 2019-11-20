@@ -8,7 +8,6 @@ import EventPage from '../../components/EventPage/EventPage';
 import MemberManagementPage from '../../components/MemberManagementPage/MemberManagementPage';
 import NewEventForm from '../../components/NewEventForm/NewEventForm';
 import AdminApiService from '../../services/admin-api-service';
-import LoginInfoContext from '../../context/LoginInfoContext';
 import TeamInfoContext from '../../context/TeamInfoContext';
 import './AdminDashboard.css';
 
@@ -20,9 +19,8 @@ class AdminDashboard extends Component {
     }
 
     componentDidMount() {
-        if (this.context.members.length === 0) {
-            this.context.fetchAllMembers();
-        }
+        this.context.fetchAllMembers();
+        this.context.fetchAllEvents();
     }
 
     handleNewEventSubmit = (e) => {
@@ -65,7 +63,6 @@ class AdminDashboard extends Component {
     }
 
     render() {
-
         const { events } = this.context
 
         return (
@@ -74,19 +71,27 @@ class AdminDashboard extends Component {
                 <main>
                     <Switch>
                         <Route exact path="/admin">
-                            <TeamStatsWidget name={'Girl Scout Troop 45093'} totalEvents={events.length} totalMembers={1} />
-                            <EventsList limit={5} />
-                            <InviteWidget />
+                            <section className="admin__dashboard-main">
+                                <div className="admin__dashboard-main--left">
+                                    <TeamStatsWidget name={'Girl Scout Troop 45093'} totalEvents={events.length} totalMembers={1} />
+                                    <EventsList limit={5} />
+                                </div>
+                                <div className="admin__dashboard-main--right">
+                                    <InviteWidget />
+                                </div>
+                            </section>
                         </Route>
                         <Route exact path="/admin/events">
                             <section className="admin__events">
-                                <EventsList limit={false} />
-                                <NewEventForm error={this.state.error} handleSubmit={this.handleNewEventSubmit} />
+                                <div className="admin__events-list">
+                                    <EventsList limit={false} />
+                                </div>
+                                <div className="admin__events-form">
+                                    <NewEventForm error={this.state.error} handleSubmit={this.handleNewEventSubmit} />
+                                </div>
                             </section>
                         </Route>
-                        <Route path="/admin/events/:id">
-                            <EventPage />
-                        </Route>
+                        <Route path="/admin/events/:id" component={EventPage} />
                         <Route>
                             <MemberManagementPage />
                         </Route>

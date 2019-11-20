@@ -22,6 +22,8 @@ class App extends Component {
       userInfo: null,
       events: [],
       members: [],
+      teamName: '',
+      memberName: '',
       loggedIn: false,
       error: null
     }
@@ -74,12 +76,11 @@ class App extends Component {
   fetchAllEvents = () => {
     AdminApiService.getAllEvents()
       .then(events => {
-        this.setState((state) => ({
-          events: events.events
+        this.setState({
+          events: events.events,
+          teamName: events.group,
+          memberName: events.name
         })
-        )
-
-        console.log('I ran')
       })
       .catch(res =>
         this.setState({
@@ -102,7 +103,6 @@ class App extends Component {
       leaderLoginToggle: this.handleLeaderLoginToggle,
       memberLoginToggle: this.handleMemberLoginToggle,
       memberJoinToggle: this.handleMemberJoinToggle,
-      fetchAllEvents: this.fetchAllEvents,
       events: this.state.events,
       loggedIn: this.state.loggedIn,
       setLoginStatus: this.setLoginStatus
@@ -110,9 +110,12 @@ class App extends Component {
 
     const teamValue = {
       events: this.state.events,
+      teamName: this.state.teamName,
       members: this.state.members,
       fetchAllMembers: this.fetchAllMembers,
-      error: this.state.error
+      fetchAllEvents: this.fetchAllEvents,
+      error: this.state.error,
+      memberName: this.state.memberName
     }
 
     return (

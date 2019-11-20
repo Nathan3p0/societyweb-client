@@ -5,7 +5,7 @@ const NewEventForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className="admin__events-form">
             <h3>Create a new event:</h3>
-            <ul className="flex-outer">
+            <ul className="newEvent__form">
                 <li>
                     <label htmlFor="event_name">Event Name:</label>
                     <input type="text" name="event_name" id="event_name" required />
