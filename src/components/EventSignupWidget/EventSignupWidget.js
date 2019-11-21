@@ -17,6 +17,7 @@ const EventSignupWidget = (props) => {
                             <ul className="eventsignup__form">
                                 <h3>Are you interested?</h3>
                                 {props.error && <p className="error">{props.error}</p>}
+                                {props.success && <p className="success">You successfully RSVP'd!!</p>}
                                 <li>
                                     <input type="radio" id="yes" name="attending" value="Yes" onChange={props.handleInputChange} />
                                     <label htmlFor="yes">Yes?</label>
