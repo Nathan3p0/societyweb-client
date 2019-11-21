@@ -3,7 +3,13 @@
     justify-content: space-around;
     padding: 3rem;
     flex-wrap: wrap;
-    background: #ccc;
+    background: #EDE4AD;
+    color: #333333;
+}
+
+.newSignup__section h3 {
+    font-size: 2rem;
+    color: #333333;
 }
 
 .newSignup__section-benefits {
@@ -18,4 +24,5 @@
 .newSignup__section-form {
     max-width: 500px;
     width: 100%;
+    margin-bottom: 2rem;
 }

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import EventListItem from '../EventsListItem/EventsListItem';
-import LoginInfoContext from '../../context/LoginInfoContext';
-import './EventsList.css'
+import MemberEventsListItem from '../MemberEventsListItem/MemberEventsListItem';
+import TeamInfoContext from '../../context/TeamInfoContext';
+import './MemberEventsList.css'
 
-class EventsList extends Component {
-    static contextType = LoginInfoContext;
+class MemberEventsList extends Component {
+    static contextType = TeamInfoContext;
 
     state = {
-        events: [],
-        error: null
     }
 
     componentDidMount() {
@@ -17,17 +15,16 @@ class EventsList extends Component {
 
     render() {
         const { events } = this.context || [];
-        let itemAmount = this.props.limit || events.length;
-        const listItems = events.slice(0, itemAmount).map((event) =>
-            <EventListItem key={event.id}
+        const listItems = events.map((event) =>
+            <MemberEventsListItem key={event.id}
                 id={event.id}
                 date={event.event_date}
                 name={event.event_name}
                 time={event.event_time}
-                location={event.event_location} />
+                location={event.event_location} findEvent={this.props.findEvent} />
         )
         return (
-            <section>
+            <section className="member__events">
                 <h3>Current Events:</h3>
                 <ul className='responsiveTable'>
                     <EventsTableHeader />
@@ -38,7 +35,7 @@ class EventsList extends Component {
     }
 }
 
-export default EventsList;
+export default MemberEventsList;
 
 
 const EventsTableHeader = () => {

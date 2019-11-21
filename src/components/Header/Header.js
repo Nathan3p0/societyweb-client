@@ -15,7 +15,7 @@ const Header = (props) => {
     } else if (loginInfo.memberLogin) {
         loginDisplay = <MemberLogin memberLoginSuccess={props.memberLoginSuccess} />
     } else {
-        loginDisplay = <button onClick={loginInfo.memberJoinToggle}>Have an invite code?</button>
+        loginDisplay = <button className="memberJoin__btn" onClick={loginInfo.memberJoinToggle}>Have an invite code?</button>
     }
 
     return (

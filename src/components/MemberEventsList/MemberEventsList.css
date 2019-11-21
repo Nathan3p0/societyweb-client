@@ -1,0 +1,8 @@
+.member__events h3 {
+    font-size: 1.5rem;
+}
+
+.tableRow:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}

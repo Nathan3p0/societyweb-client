@@ -1,32 +1,29 @@
-.success {
-    color: #fff;
-}
-
-.newMember__signup-form h3 {
+.leaderLogin__form h3 {
     color: #fff;
     margin: 2rem 0 1rem 0;
     font-size: 2rem;
     text-align: center;
 }
 
-.newMember__signup-form li {
+
+.leaderLogin__form li {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     margin-top: .5rem
 }
 
-.newMember__signup-form > li > label {
+.leaderLogin__form > li > label {
     flex: 1 0 100px;
     color: #fff;
     font-size: 1.2rem;
 }
 
-.newMember__signup-form > li > label + * {
+.leaderLogin__form > li > label + * {
     flex: 1 0 220px;
 }
 
-.newMember__signup-form li button {
+.leaderLogin__form li button {
     margin-left: auto;
     padding: 12px 24px;
     border: none;
@@ -37,13 +34,13 @@
     border-radius: 2px;
 }
 
-.newMember__signup-form li button:hover {
+.leaderLogin__form li button:hover {
     cursor: pointer;
     transform: scale(1.1);
     box-shadow: 1px 1px 5px #333333;
 }
 
-.newMember__signup-form li input {
+.leaderLogin__form li input {
     padding: 15px;
     border: 1px solid #00000025;
     border-radius: 5px;

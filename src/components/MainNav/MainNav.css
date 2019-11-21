@@ -1,5 +1,6 @@
 .main__nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 1.5rem 2rem;
     background-color: #26575E;
@@ -10,7 +11,8 @@
     align-self: center;
 }
 
-.main__nav-login button {
+.main__nav-login button,
+.main__nav-logout button {
     margin: 0 .5rem;
     padding: 12px 24px;
     border: none;
@@ -21,7 +23,8 @@
     border-radius: 2px;
 }
 
-.main__nav-login button:hover {
+.main__nav-login button:hover,
+.main__nav-logout button:hover {
     cursor: pointer;
     transform: scale(1.1);
     box-shadow: 1px 1px 5px #333333;

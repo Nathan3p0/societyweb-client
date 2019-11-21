@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import LoginInfoContext from '../../context/LoginInfoContext';
+import './LeaderLogin.css'
 
 class LeaderLogin extends Component {
     static contextType = LoginInfoContext;
@@ -26,10 +27,8 @@ class LeaderLogin extends Component {
             password: password.value
         })
             .then(res => {
-                console.log(res)
                 username.value = '';
                 password.value = '';
-                this.context.setLoginStatus();
                 this.props.leaderLoginSuccess();
             })
             .catch(res => {
@@ -43,13 +42,21 @@ class LeaderLogin extends Component {
         const { error } = this.state;
         return (
             <form onSubmit={this.handleLeaderLoginSubmit}>
-                <h3>Team Leader Login</h3>
-                {error && <p>{error}</p>}
-                <label htmlFor="username">Username:</label>
-                <input type="text" name="username" id="username" required />
-                <label htmlFor="password">Password:</label>
-                <input type="password" name="password" id="password" required />
-                <button type="submit">Login</button>
+                <ul className="leaderLogin__form">
+                    <h3>Team Leader Login</h3>
+                    {error && <p className="error">{error}</p>}
+                    <li>
+                        <label htmlFor="username">Username:</label>
+                        <input type="text" name="username" id="username" required />
+                    </li>
+                    <li>
+                        <label htmlFor="password">Password:</label>
+                        <input type="password" name="password" id="password" required />
+                    </li>
+                    <li>
+                        <button type="submit">Login</button>
+                    </li>
+                </ul>
             </form>
         );
     }

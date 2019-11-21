@@ -1,14 +1,60 @@
 import React, { Component } from 'react';
-import './NewMemberSignUp.css'
+import AuthApiService from '../../services/auth-api-service';
+import './NewMemberSignUp.css';
 
 class NewMemberSignUp extends Component {
-    state = {}
+
+    state = {
+        error: null,
+        success: false
+    }
+
+    handleNewMemberSubmit = (e) => {
+        e.preventDefault();
+
+        const { full_name, username, password, email, phone, invite_code } = e.target;
+        const newMember = {
+            full_name: full_name.value,
+            username: username.value,
+            password: password.value,
+            email: email.value,
+            phone: phone.value,
+            invite_code: invite_code.value
+        }
+
+        this.setState({
+            error: null
+        })
+
+        AuthApiService.postNewMember(newMember)
+            .then(res => {
+                full_name.value = '';
+                username.value = '';
+                password.value = '';
+                email.value = '';
+                phone.value = '';
+                invite_code.value = '';
+
+                this.setState({
+                    success: true
+                })
+            })
+            .catch(res => {
+                this.setState({
+                    error: res.error
+                })
+            })
+    }
+
     render() {
+        const { error, success } = this.state;
         return (
             <>
-                <form>
+                <form onSubmit={this.handleNewMemberSubmit}>
                     <ul className="newMember__signup-form">
                         <h3>New Member Signup</h3>
+                        {error && <p className="error">{error}</p>}
+                        {success && <p className="success">You successfully signed up. Click Login as Member at the top.</p>}
                         <li>
                             <label htmlFor="fullname">Full Name:</label>
                             <input type="text" name="full_name" id="fullname" required />

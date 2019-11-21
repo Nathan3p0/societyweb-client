@@ -19,8 +19,8 @@ class AdminDashboard extends Component {
     }
 
     componentDidMount() {
-        this.context.fetchAllMembers();
         this.context.fetchAllEvents();
+        this.context.fetchAllMembers();
     }
 
     handleNewEventSubmit = (e) => {

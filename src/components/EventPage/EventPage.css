@@ -6,19 +6,49 @@
 }
 
 .eventPage__event-attending {
-    background-color: #ddd;
     padding: 1rem;
 }
 
 .eventPage__event-info {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    background-color: #fff;
+}
+
+.eventPage__event-info--content {
     padding: 1rem;
-    background-color: #333;
 }
 
 .eventPage__event-info h3 {
     font-size: 2rem;
+    padding: .6rem;
+    background-color: #26495E;
+    color: #fff;
 }
 
-.eventPage__event-info button {
+.eventPage__event-info button  {
     margin-top: 2rem;
+    padding: 8px 16px;
+    border: none;
+    background: #333333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+}
+
+.eventPage__event-info button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 1px 1px 5px #333333;
+}
+
+@media all and (min-width: 600px) {
+    .eventPage__event-info {
+        flex: 1;
+    }
+
+    .eventPage__event-attending {
+        flex: 1;
+    }
 }

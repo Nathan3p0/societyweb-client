@@ -10,6 +10,7 @@ import Footer from '../../components/Footer/Footer'
 import LoginInfoContext from '../../context/LoginInfoContext';
 import TeamInfoContext from '../../context/TeamInfoContext';
 import AdminApiService from '../../services/admin-api-service';
+import MemberApiService from '../../services/member-api-service';
 import './App.css'
 
 class App extends Component {
@@ -63,7 +64,7 @@ class App extends Component {
     AdminApiService.getAllMembers()
       .then(members => {
         this.setState({
-          members: members.members
+          members: members
         })
       })
       .catch(res => {
@@ -89,10 +90,32 @@ class App extends Component {
       )
   }
 
+  fetchAllMemberEvents = () => {
+    MemberApiService.getAllMemberEvents()
+      .then(events => {
+        this.setState({
+          events: events.events,
+          teamName: events.group,
+          memberName: events.name
+        })
+      })
+      .catch(res =>
+        this.setState({
+          error: res.error
+        })
+      )
+  }
+
   setLoginStatus = () => {
     this.setState(state => ({
       loggedIn: !state.loggedIn
     }))
+  }
+
+  setLoginStatusFalse = () => {
+    this.setState({
+      loggedIn: false
+    })
   }
 
   render() {
@@ -105,7 +128,7 @@ class App extends Component {
       memberJoinToggle: this.handleMemberJoinToggle,
       events: this.state.events,
       loggedIn: this.state.loggedIn,
-      setLoginStatus: this.setLoginStatus
+      setLoginStatusFalse: this.setLoginStatusFalse
     }
 
     const teamValue = {
@@ -114,6 +137,7 @@ class App extends Component {
       members: this.state.members,
       fetchAllMembers: this.fetchAllMembers,
       fetchAllEvents: this.fetchAllEvents,
+      fetchAllMemberEvents: this.fetchAllMemberEvents,
       error: this.state.error,
       memberName: this.state.memberName
     }

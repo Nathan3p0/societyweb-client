@@ -13,3 +13,13 @@
     text-decoration: none;
     color: #fff;
 }
+
+@media all and (max-width: 600px) {
+    .admin__nav {
+        flex-wrap: wrap;
+    }
+
+    .admin__nav > li {
+        flex-basis: 50%;
+    }
+}

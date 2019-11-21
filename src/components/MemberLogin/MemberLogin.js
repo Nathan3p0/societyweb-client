@@ -27,7 +27,6 @@ class MemberLogin extends Component {
             password: password.value
         })
             .then(res => {
-                console.log(res)
                 username.value = '';
                 password.value = '';
                 this.props.memberLoginSuccess();

@@ -1,0 +1,21 @@
+.member__dashboard-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.member__dashboard-main--right {
+    padding: 0 1rem;
+}
+
+
+@media all and (min-width: 800px) {
+    .member__dashboard-main--left {
+        flex: 2;
+    }
+
+    .member__dashboard-main--right {
+        flex: 1;
+    }
+}
