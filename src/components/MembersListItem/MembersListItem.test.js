@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import MembersListItem from './MembersListItem'
 
-describe('Member Login Component Rendering Tests', () => {
+describe('Members List Item Component Rendering Tests', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div')

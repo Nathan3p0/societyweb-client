@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component Rendering Tests renders to UI as expected 1`] = `
+<footer
+  className="main__footer"
+>
+  <a
+    href="#"
+  >
+    Twitter Logo Here
+  </a>
+  <p>
+    © 2019 SocietyWeb.org
+  </p>
+</footer>
+`;

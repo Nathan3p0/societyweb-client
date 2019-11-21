@@ -56,11 +56,11 @@ class LeaderLogin extends Component {
                     {error && <p className="error">{error}</p>}
                     <li>
                         <label htmlFor="username">Username:</label>
-                        <input type="text" name="username" id="username" required />
+                        <input type="text" name="username" id="username" placeholder="username" required />
                     </li>
                     <li>
                         <label htmlFor="password">Password:</label>
-                        <input type="password" name="password" id="password" required />
+                        <input type="password" name="password" id="password" placeholder="password" required />
                     </li>
                     <li>
                         <button type="submit">Login</button>

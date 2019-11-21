@@ -1,91 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Member Login Component Rendering Tests renders to UI as expected 1`] = `
-<header>
-  <h2>
-    Keep Your Team Connected!
-  </h2>
-  <p>
-    Join Society Web...
-  </p>
-  <button>
-    Have an invite code?
-  </button>
-  <form>
-    <h3>
-      New Member Signup
-    </h3>
-    <label
-      htmlFor="fullname"
+exports[`Header Component Rendering Tests renders to UI as expected 1`] = `
+<header
+  className="landingpage__header"
+>
+  <div
+    className="landingpage__header-message"
+  >
+    <h2>
+      Keep Your Team Connected!
+    </h2>
+    <p>
+      Join Society Web...
+    </p>
+  </div>
+  <div
+    className="landingpage__header-login"
+  >
+    <form
+      onSubmit={[Function]}
     >
-      Full Name:
-    </label>
-    <input
-      id="fullname"
-      name="full_name"
-      required={true}
-      type="text"
-    />
-    <label
-      htmlFor="username"
-    >
-      Username:
-    </label>
-    <input
-      id="username"
-      name="username"
-      required={true}
-      type="text"
-    />
-    <label
-      htmlFor="password"
-    >
-      Password:
-    </label>
-    <input
-      id="password"
-      name="password"
-      required={true}
-      type="password"
-    />
-    <label
-      htmlFor="email"
-    >
-      Email:
-    </label>
-    <input
-      id="email"
-      name="email"
-      required={true}
-      type="text"
-    />
-    <label
-      htmlFor="phone"
-    >
-      Phone Number:
-    </label>
-    <input
-      id="phone"
-      name="phone"
-      required={true}
-      type="tel"
-    />
-    <label
-      htmlFor="invite_code"
-    >
-      Invite Code:
-    </label>
-    <input
-      id="invite_code"
-      name="invite_code"
-      required={true}
-      type="text"
-    />
-    <button
-      type="submit"
-    >
-      Sign Up
-    </button>
-  </form>
+      <ul
+        className="newMember__signup-form"
+      >
+        <h3>
+          New Member Signup
+        </h3>
+        <li>
+          <label
+            htmlFor="fullname"
+          >
+            Full Name:
+          </label>
+          <input
+            id="fullname"
+            name="full_name"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="username"
+          >
+            Username:
+          </label>
+          <input
+            id="username"
+            name="username"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="password"
+          >
+            Password:
+          </label>
+          <input
+            id="password"
+            name="password"
+            required={true}
+            type="password"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="email"
+          >
+            Email:
+          </label>
+          <input
+            id="email"
+            name="email"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="phone"
+          >
+            Phone Number:
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            required={true}
+            type="tel"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="invite_code"
+          >
+            Invite Code:
+          </label>
+          <input
+            id="invite_code"
+            name="invite_code"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <button
+            type="submit"
+          >
+            Sign Up
+          </button>
+        </li>
+      </ul>
+    </form>
+  </div>
 </header>
 `;

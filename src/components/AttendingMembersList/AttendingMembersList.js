@@ -32,7 +32,6 @@ class AttendingMembersList extends Component {
     }
 
     render() {
-        const { attending } = this.state
         const listItems = this.state.attending.map(member =>
             <AttendingMembersListItem key={member.id} name={member.full_name} phone={member.phone} email={member.email} attending={member.event_role} />
         )

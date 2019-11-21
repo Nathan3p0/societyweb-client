@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`New Team Signup Section Component Rendering Tests renders to UI as expected 1`] = `
+<section
+  className="newSignup__section"
+>
+  <div
+    className="newSignup__section-benefits"
+  >
+    <h3>
+      The benefits of Society Web
+    </h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error sed, explicabo molestiae iste consectetur mollitia voluptate voluptatum, est eius modi saepe, ad exercitationem numquam harum quo quasi asperiores repellat incidunt ab fuga sit id sapiente aspernatur similique! Nostrum enim quibusdam voluptatum ea velit odit impedit consequuntur totam adipisci, mollitia eos!
+    </p>
+  </div>
+  <div
+    className="newSignup__section-form"
+  >
+    <h3>
+      New Team Signup
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <ul
+        className="signup__form"
+      >
+        <li>
+          <label
+            htmlFor="fullname"
+          >
+            Full Name:
+          </label>
+          <input
+            id="fullname"
+            name="full_name"
+            placeholder="name"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="username"
+          >
+            Username:
+          </label>
+          <input
+            id="username"
+            name="username"
+            placeholder="username"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="password"
+          >
+            Password:
+          </label>
+          <input
+            id="password"
+            name="password"
+            placeholder="password"
+            required={true}
+            type="password"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="email"
+          >
+            Email:
+          </label>
+          <input
+            id="email"
+            name="email"
+            placeholder="email"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="phone"
+          >
+            Phone Number:
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            placeholder="123-455-0505"
+            required={true}
+            type="tel"
+          />
+        </li>
+        <li>
+          <label
+            htmlFor="group_name"
+          >
+            Team Name
+          </label>
+          <input
+            id="group_name"
+            name="group_name"
+            placeholder="team name"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <button
+            type="submit"
+          >
+            Sign Up
+          </button>
+        </li>
+      </ul>
+    </form>
+  </div>
+</section>
+`;

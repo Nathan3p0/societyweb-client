@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Members List Component Rendering Tests renders to UI as expected 1`] = `
+<section
+  className="membersList__main"
+>
+  <h3>
+    Current Members:
+  </h3>
+  <ul
+    className="responsiveTable"
+  >
+    <li
+      className="tableHeader"
+    >
+      <div
+        className="col col-1"
+      >
+        Full Name
+      </div>
+      <div
+        className="col col-2"
+      >
+        Username
+      </div>
+      <div
+        className="col col-3"
+      >
+        Phone Number
+      </div>
+      <div
+        className="col col-4"
+      >
+        Email
+      </div>
+    </li>
+    <p
+      className="error"
+    />
+  </ul>
+</section>
+`;

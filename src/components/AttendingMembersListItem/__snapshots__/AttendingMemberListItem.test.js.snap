@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Attending Member List Item Component Rendering Tests renders to UI as expected 1`] = `
+<li
+  className="tableRow"
+>
+  <div
+    className="col col-1"
+    data-label="Member Name"
+  />
+  <div
+    className="col col-2"
+    data-label="Member Phone"
+  />
+  <div
+    className="col col-3"
+    data-label="Member Email"
+  />
+  <div
+    className="col col-4"
+    data-label="RSVP Status"
+  />
+</li>
+`;

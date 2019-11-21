@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import Footer from './Footer'
 
-describe('Member Login Component Rendering Tests', () => {
+describe('Footer Component Rendering Tests', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div')

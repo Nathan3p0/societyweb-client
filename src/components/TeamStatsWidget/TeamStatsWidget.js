@@ -17,8 +17,4 @@ const TeamStatsWidget = (props) => {
     );
 }
 
-TeamStatsWidget.defaultProps = {
-    admin: 'Loading'
-}
-
 export default TeamStatsWidget;

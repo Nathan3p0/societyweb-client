@@ -11,10 +11,6 @@ class EventsList extends Component {
         error: null
     }
 
-    componentDidMount() {
-
-    }
-
     render() {
         const { events } = this.context || [];
         let itemAmount = this.props.limit || events.length;

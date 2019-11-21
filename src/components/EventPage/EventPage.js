@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 import AttendingMemberList from '../AttendingMembersList/AttendingMembersList';
 import AdminApiService from '../../services/admin-api-service';
 import './EventPage.css';
@@ -25,11 +26,6 @@ const EventPage = (props) => {
         fetchEvents()
     }, [])
 
-
-
-    console.log(event)
-
-
     const handleGoBack = () => {
         history.goBack();
     }
@@ -41,7 +37,7 @@ const EventPage = (props) => {
                     {error && <p className="error">{error}</p>}
                     <h3>Event: {event.event_name}</h3>
                     <div className="eventPage__event-info--content">
-                        <p><strong>Date:</strong> {event.event_date}</p>
+                        <p><strong>Date:</strong> {moment(event.event_date).format('MMMM Do YYYY')}</p>
                         <p><strong>Time:</strong> {event.event_time}</p>
                         <p><strong>Location:</strong> {event.event_location}</p>
                         <p><strong>Description:</strong> {event.event_description}</p>

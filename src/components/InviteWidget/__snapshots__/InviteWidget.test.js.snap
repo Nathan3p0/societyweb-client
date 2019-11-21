@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Invite Widget Component Rendering Tests renders to UI as expected 1`] = `
+<section
+  className="inviteWidget__container"
+>
+  <h3
+    className="inviteWidget__container-header"
+  >
+    Invite
+  </h3>
+  <div
+    className="inviteWidget__container-content"
+  >
+    <p>
+      Simply enter your new member's phone number and we will send them an invite.
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <ul
+        className="inviteWidget__form"
+      >
+        <li>
+          <label
+            htmlFor="invite"
+          >
+            Phone Number:
+          </label>
+          <input
+            id="invite"
+            name="phone"
+            placeholder="123-555-0505"
+            required={true}
+            type="tel"
+          />
+        </li>
+        <li>
+          <button
+            type="submit"
+          >
+            Send Invite
+          </button>
+        </li>
+      </ul>
+    </form>
+  </div>
+</section>
+`;

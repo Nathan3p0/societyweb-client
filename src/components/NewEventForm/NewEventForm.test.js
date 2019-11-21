@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import NewEventForm from './NewEventForm'
 
-describe('Member Login Component Rendering Tests', () => {
+describe('New Event Form Component Rendering Tests', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div')

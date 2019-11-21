@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Event Page Component Rendering Tests renders to UI as expected 1`] = `
+<section
+  className="eventPage__main"
+>
+  <section
+    className="eventPage__event-info"
+  >
+    <h3>
+      Event: 
+      loading
+    </h3>
+    <div
+      className="eventPage__event-info--content"
+    >
+      <p>
+        <strong>
+          Date:
+        </strong>
+         
+        November 21st 2019
+      </p>
+      <p>
+        <strong>
+          Time:
+        </strong>
+         
+      </p>
+      <p>
+        <strong>
+          Location:
+        </strong>
+         
+      </p>
+      <p>
+        <strong>
+          Description:
+        </strong>
+         
+      </p>
+      <button
+        onClick={[Function]}
+      >
+        Go Back
+      </button>
+    </div>
+  </section>
+  <section
+    className="eventPage__event-attending"
+  >
+    <section>
+      <h3>
+        Members Attending Event:
+      </h3>
+      <ul
+        className="responsiveTable"
+      >
+        <li
+          className="tableHeader"
+        >
+          <div
+            className="col col-1"
+          >
+            Name
+          </div>
+          <div
+            className="col col-2"
+          >
+            Phone
+          </div>
+          <div
+            className="col col-3"
+          >
+            Email
+          </div>
+          <div
+            className="col col-4"
+          >
+            RSVP Status
+          </div>
+        </li>
+      </ul>
+    </section>
+  </section>
+</section>
+`;

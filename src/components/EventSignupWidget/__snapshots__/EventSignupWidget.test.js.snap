@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Event Signup Widget Component Rendering Tests renders to UI as expected 1`] = `
+<section
+  className="eventsignup__container"
+>
+  <h3
+    className="eventsignup__container-header"
+  >
+    Event Signup:
+  </h3>
+  <div
+    className="eventsignup__container-content"
+  >
+    <h4>
+      Select an event to signup
+    </h4>
+  </div>
+</section>
+`;

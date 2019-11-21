@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`New Event Form Component Rendering Tests renders to UI as expected 1`] = `
+<form
+  className="admin__events-form"
+>
+  <h3>
+    Create a new event:
+  </h3>
+  <ul
+    className="newEvent__form"
+  >
+    <li>
+      <label
+        htmlFor="event_name"
+      >
+        Event Name:
+      </label>
+      <input
+        id="event_name"
+        name="event_name"
+        placeholder="event name"
+        required={true}
+        type="text"
+      />
+    </li>
+    <li>
+      <label
+        htmlFor="event_time"
+      >
+        Event Time:
+      </label>
+      <input
+        id="event_time"
+        name="event_time"
+        required={true}
+        type="time"
+      />
+    </li>
+    <li>
+      <label
+        htmlFor="event_date"
+      >
+        Event Date:
+      </label>
+      <input
+        id="event_date"
+        name="event_date"
+        required={true}
+        type="date"
+      />
+    </li>
+    <li>
+      <label
+        htmlFor="event_location"
+      >
+        Event Location:
+      </label>
+      <input
+        id="event_location"
+        name="event_location"
+        placeholder="location"
+        required={true}
+        type="text"
+      />
+    </li>
+    <li>
+      <label
+        htmlFor="event_description"
+      >
+        Event Description:
+      </label>
+      <textarea
+        id="event_description"
+        name="event_description"
+        placeholder="Write description here..."
+        required={true}
+      />
+    </li>
+    <li>
+      <button
+        type="submit"
+      >
+        Create Event
+      </button>
+    </li>
+  </ul>
+</form>
+`;

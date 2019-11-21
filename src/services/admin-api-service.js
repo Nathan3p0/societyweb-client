@@ -54,6 +54,19 @@ const AdminApiService = {
             .then(res =>
                 (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
             )
+    },
+    inviteNewMemberSms(phone) {
+        return fetch(`${config.API_ENDPOINT}/message/invite`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ phone: phone })
+        })
+            .then(res =>
+                (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
+            )
     }
 }
 

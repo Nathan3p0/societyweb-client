@@ -8,7 +8,7 @@ const NewEventForm = (props) => {
             <ul className="newEvent__form">
                 <li>
                     <label htmlFor="event_name">Event Name:</label>
-                    <input type="text" name="event_name" id="event_name" required />
+                    <input type="text" name="event_name" id="event_name" placeholder="event name" required />
                 </li>
                 <li>
                     <label htmlFor="event_time">Event Time:</label>
@@ -20,11 +20,11 @@ const NewEventForm = (props) => {
                 </li>
                 <li>
                     <label htmlFor="event_location">Event Location:</label>
-                    <input type="text" name="event_location" id="event_location" required />
+                    <input type="text" name="event_location" id="event_location" placeholder="location" required />
                 </li>
                 <li>
                     <label htmlFor="event_description">Event Description:</label>
-                    <textarea name="event_description" id="event_description" required />
+                    <textarea name="event_description" id="event_description" placeholder="Write description here..." required />
                 </li>
                 <li>
                     <button type="submit">Create Event</button>

@@ -1,36 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Member Login Component Rendering Tests renders to UI as expected 1`] = `
-<form>
-  <h3>
-    Team Leader Login
-  </h3>
-  <label
-    htmlFor="username"
+exports[`Leader Login Component Rendering Tests renders to UI as expected 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <ul
+    className="leaderLogin__form"
   >
-    Username:
-  </label>
-  <input
-    id="username"
-    name="username"
-    required={true}
-    type="text"
-  />
-  <label
-    htmlFor="password"
-  >
-    Password:
-  </label>
-  <input
-    id="password"
-    name="password"
-    required={true}
-    type="password"
-  />
-  <button
-    type="submit"
-  >
-    Login
-  </button>
+    <h3>
+      Team Leader Login
+    </h3>
+    <li>
+      <label
+        htmlFor="username"
+      >
+        Username:
+      </label>
+      <input
+        id="username"
+        name="username"
+        placeholder="username"
+        required={true}
+        type="text"
+      />
+    </li>
+    <li>
+      <label
+        htmlFor="password"
+      >
+        Password:
+      </label>
+      <input
+        id="password"
+        name="password"
+        placeholder="password"
+        required={true}
+        type="password"
+      />
+    </li>
+    <li>
+      <button
+        type="submit"
+      >
+        Login
+      </button>
+    </li>
+  </ul>
 </form>
 `;

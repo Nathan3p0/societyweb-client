@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Members List Item Component Rendering Tests renders to UI as expected 1`] = `
+<li
+  className="tableRow"
+>
+  <div
+    className="col col-1"
+    data-label="Full Name"
+  />
+  <div
+    className="col col-2"
+    data-label="Username"
+  />
+  <div
+    className="col col-3"
+    data-label="Phone Number"
+  />
+  <div
+    className="col col-4"
+    data-label="Email"
+  />
+</li>
+`;

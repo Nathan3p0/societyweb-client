@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Events List item Component Rendering Tests renders to UI as expected 1`] = `
+<a
+  href="/admin/events/0"
+  onClick={[Function]}
+>
+  <li
+    className="tableRow"
+  >
+    <div
+      className="col col-1"
+      data-label="Event Date"
+    >
+      December 12th 1979
+    </div>
+    <div
+      className="col col-2"
+      data-label="Event Name"
+    >
+      Default Name
+    </div>
+    <div
+      className="col col-3"
+      data-label="Event Time"
+    >
+      11:11:11
+    </div>
+    <div
+      className="col col-4"
+      data-label="Customer Phone"
+    >
+      Default Location
+    </div>
+  </li>
+</a>
+`;

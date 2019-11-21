@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import InviteWidget from './InviteWidget'
 
-describe('Member Login Component Rendering Tests', () => {
+describe('Invite Widget Component Rendering Tests', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div')

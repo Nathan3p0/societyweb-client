@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Team Stats Widget Component Rendering Tests renders to UI as expected 1`] = `
+<section
+  className="teamstats__widget"
+>
+  <h3
+    className="teamstats__widget--header"
+  >
+    
+  </h3>
+  <div
+    className="teamstats__widget--content"
+  >
+    <h3>
+      Welcome 
+      !
+    </h3>
+    <h4>
+      Current Event Count: 
+      <span
+        className="teamstats__widget--count"
+      >
+        0
+      </span>
+    </h4>
+    <h4>
+      Active Member Count: 
+      <span
+        className="teamstats__widget--count"
+      >
+        0
+      </span>
+    </h4>
+  </div>
+</section>
+`;

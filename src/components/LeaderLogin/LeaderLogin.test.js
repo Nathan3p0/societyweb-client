@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import LeaderLogin from './LeaderLogin'
 
-describe('Member Login Component Rendering Tests', () => {
+describe('Leader Login Component Rendering Tests', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div')

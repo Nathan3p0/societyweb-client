@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Attending Member List Component Rendering Tests renders to UI as expected 1`] = `
+<section>
+  <h3>
+    Members Attending Event:
+  </h3>
+  <ul
+    className="responsiveTable"
+  >
+    <li
+      className="tableHeader"
+    >
+      <div
+        className="col col-1"
+      >
+        Name
+      </div>
+      <div
+        className="col col-2"
+      >
+        Phone
+      </div>
+      <div
+        className="col col-3"
+      >
+        Email
+      </div>
+      <div
+        className="col col-4"
+      >
+        RSVP Status
+      </div>
+    </li>
+  </ul>
+</section>
+`;
