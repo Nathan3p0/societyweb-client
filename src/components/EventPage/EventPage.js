@@ -1,14 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import TeamInfoContext from '../../context/TeamInfoContext';
 import AttendingMemberList from '../AttendingMembersList/AttendingMembersList';
+import AdminApiService from '../../services/admin-api-service';
 import './EventPage.css';
 
 const EventPage = (props) => {
     let history = useHistory();
-    const value = useContext(TeamInfoContext);
     const { id } = props.match.params;
-    const event = value.events.find(event => event.id === id);
+
+    const [error, setError] = useState(null);
+    const [event, setEvent] = useState({ event_name: 'loading' });
+
+    const fetchEvents = () => {
+        AdminApiService.fetchEventById(id)
+            .then(res =>
+                setEvent(res)
+            )
+            .catch(err =>
+                setError(err)
+            )
+    }
+
+    useEffect(() => {
+        fetchEvents()
+    }, [])
+
+
+
+    console.log(event)
+
 
     const handleGoBack = () => {
         history.goBack();
@@ -18,6 +38,7 @@ const EventPage = (props) => {
         <>
             <section className="eventPage__main">
                 <section className="eventPage__event-info">
+                    {error && <p className="error">{error}</p>}
                     <h3>Event: {event.event_name}</h3>
                     <div className="eventPage__event-info--content">
                         <p><strong>Date:</strong> {event.event_date}</p>

@@ -4,6 +4,10 @@
     box-shadow: 1px 3px 10px #33333363;
 }
 
+.success {
+    color: rgb(0, 141, 151);
+}
+
 .eventsignup__container-header {
     background-color: #26495E;
     color: white;

@@ -27,7 +27,7 @@ class EventsList extends Component {
                 location={event.event_location} />
         )
         return (
-            <section>
+            <section className="events__list">
                 <h3>Current Events:</h3>
                 <ul className='responsiveTable'>
                     <EventsTableHeader />
