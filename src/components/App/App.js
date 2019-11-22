@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { Switch } from "react-router-dom";
+import { faCalendarAlt, faUsers, faEnvelope, faHandshake } from '@fortawesome/free-solid-svg-icons'
 import MainNav from '../MainNav/MainNav';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import PrivateRoute from '../Utils/PrivateRoute';
-import { Switch } from "react-router-dom";
 import LandingPage from '../../routes/LandingPage/LandingPage';
 import AdminDashboard from '../../routes/AdminDashboard/AdminDashboard';
 import MemberDashboard from '../../routes/MemberDashboard/MemberDashboard';
@@ -12,6 +15,8 @@ import TeamInfoContext from '../../context/TeamInfoContext';
 import AdminApiService from '../../services/admin-api-service';
 import MemberApiService from '../../services/member-api-service';
 import './App.css'
+
+library.add(fab, faCalendarAlt, faUsers, faEnvelope, faHandshake)
 
 class App extends Component {
   constructor(props) {

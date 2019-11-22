@@ -2,11 +2,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 1rem;
     position: fixed;
     left: 0;
     bottom: 0;
+    padding: 1rem;
     width: 100%;
     background-color: #26575E;
     color: #fff
+}
+
+.main__footer a {
+    color: white;
+}
+
+.main__footer a:hover {
+    color: aqua;
 }

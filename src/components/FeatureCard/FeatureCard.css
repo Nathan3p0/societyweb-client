@@ -1,0 +1,32 @@
+.features__main-card {
+    background-color: #4ab3dd;
+    padding: 5rem 3rem;
+    width: 23%;
+    min-width: 360px;
+    margin-bottom: 4rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 2rem;
+    box-shadow: 1px 3px 5px #333333;
+}
+
+.features__main-card:hover {
+    background-color: #333333;
+}
+
+.features__main-card h3 {
+    font-size: 1.6rem;
+}
+
+.features__main-card .icon {
+    margin-bottom: 2rem;
+}
+
+@media all and (max-width: 360px) {
+    .features__main-card {
+        min-width: 300px;
+        width: 20%;
+    }
+}

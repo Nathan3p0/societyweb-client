@@ -13,6 +13,17 @@
     flex: 1;
 }
 
+.admin__alerts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.admin__alerts-members {
+    flex: 2;
+}
+
 .admin__dashboard-main {
     display: flex;
     flex-wrap: wrap;

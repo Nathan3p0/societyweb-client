@@ -1,0 +1,6 @@
+.features__main {
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem;
+    flex-wrap: wrap;
+}

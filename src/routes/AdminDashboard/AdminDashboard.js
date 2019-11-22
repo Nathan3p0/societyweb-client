@@ -9,7 +9,10 @@ import MemberManagementPage from '../../components/MemberManagementPage/MemberMa
 import NewEventForm from '../../components/NewEventForm/NewEventForm';
 import AdminApiService from '../../services/admin-api-service';
 import TeamInfoContext from '../../context/TeamInfoContext';
+import NotFound from '../../components/NotFound/NotFound';
+import NewAlertForm from '../../components/NewAlertForm/NewAlertForm';
 import './AdminDashboard.css';
+import MembersList from '../../components/MembersList/MembersList';
 
 class AdminDashboard extends Component {
     static contextType = TeamInfoContext;
@@ -92,9 +95,18 @@ class AdminDashboard extends Component {
                             </section>
                         </Route>
                         <Route path="/admin/events/:id" component={EventPage} />
-                        <Route>
-                            <MemberManagementPage />
+                        <Route path="/admin/members" component={MemberManagementPage} />
+                        <Route path="/admin/alerts">
+                            <section className="admin__alerts">
+                                <div className="admin__alerts-members">
+                                    <MembersList limit={false} />
+                                </div>
+                                <div className="admin__alerts-form">
+                                    <NewAlertForm error={this.state.error} handleSubmit={this.handleNewAlertSubmit} />
+                                </div>
+                            </section>
                         </Route>
+                        <Route component={NotFound} />
                     </Switch>
                 </main>
             </>

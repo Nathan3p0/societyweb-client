@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import NewTeamSignUpSection from '../../components/NewTeamSignUpSection/NewTeamSignUpSection';
 import LoginInfoContext from '../../context/LoginInfoContext';
 import TestimonialSection from '../../components/TestimonialSection/TestimonialSection';
+import AppFeaturesSection from '../../components/AppFeaturesSection/AppFeaturesSection';
 
 class LandingPage extends Component {
     static contextType = LoginInfoContext;
@@ -30,6 +31,7 @@ class LandingPage extends Component {
                 <main>
                     <NewTeamSignUpSection />
                     <TestimonialSection />
+                    <AppFeaturesSection />
                 </main>
             </>
         );

@@ -1,0 +1,50 @@
+.admin__alerts-form {
+    margin-top: 2rem;
+    width: 500px;
+    max-width: 100%;
+    padding: 1rem;
+}
+
+.admin__alerts-form h3 {
+    text-align: center;
+    padding: 1rem;
+    background-color: #26495E;
+    color: #fff;
+}
+
+.newAlert__form li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: .5rem
+}
+
+.newAlert__form > li > label {
+    flex: 1 0 100px;
+}
+
+.newAlert__form > li > label + * {
+    flex: 1 0 220px;
+}
+
+.newAlert__form li button {
+    margin-left: auto;
+    padding: 8px 16px;
+    border: none;
+    background: #333333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+}
+
+.newAlert__form li button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 1px 1px 5px #333333;
+}
+
+.newAlert__form li input {
+    padding: 15px;
+    border: none;
+}
