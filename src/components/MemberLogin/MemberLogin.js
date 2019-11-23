@@ -48,10 +48,13 @@ class MemberLogin extends Component {
             return <Redirect to='/member' />
         }
 
+        const {error} = this.state;
+
         return (
             <form onSubmit={this.handleMemberLoginSubmit}>
                 <ul className="memberLogin__form">
                     <h3>Team Member Login</h3>
+                    {error && <p className="error">{error}</p>}
                     <li>
                         <label htmlFor="username">Username:</label>
                         <input type="text" name="username" id="username" placeholder="username" required />

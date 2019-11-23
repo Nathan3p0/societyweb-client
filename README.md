@@ -47,6 +47,7 @@ SocietyWeb provides the key features that I have seen groups rely on and struggl
 - Express
 - PostgreSQL
 - Mocha/Chai/Jest
+- Twilio API
 - Heroku
 - Surge
 
