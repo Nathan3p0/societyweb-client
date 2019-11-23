@@ -10,7 +10,6 @@ const AdminDashboardNav = () => {
                 <li><NavLink to="/admin/members" activeClassName="selected">Team Members</NavLink></li>
                 <li><NavLink to="/admin/events" activeClassName="selected">Event Manager</NavLink></li>
                 <li><NavLink to="/admin/alerts" activeClassName="selected">Team Alerts</NavLink></li>
-                <li><NavLink to="/admin/invite" activeClassName="selected">Invite New Member</NavLink></li>
             </ul>
         </nav>
     );
