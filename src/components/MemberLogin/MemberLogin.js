@@ -48,7 +48,7 @@ class MemberLogin extends Component {
             return <Redirect to='/member' />
         }
 
-        const {error} = this.state;
+        const { error } = this.state;
 
         return (
             <form onSubmit={this.handleMemberLoginSubmit}>
@@ -57,17 +57,17 @@ class MemberLogin extends Component {
                     {error && <p className="error">{error}</p>}
                     <li>
                         <label htmlFor="username">Username:</label>
-                        <input type="text" name="username" id="username" placeholder="username" required />
+                        <input type="text" name="username" id="username" placeholder="Username" required />
                     </li>
                     <li>
                         <label htmlFor="password">Password:</label>
-                        <input type="password" name="password" id="password" placeholder="password" required />
+                        <input type="password" name="password" id="password" placeholder="Password" required />
                     </li>
                     <li>
                         <button type="submit">Login</button>
                     </li>
                     <li>
-                        <a href="#" onClick={this.context.memberJoinToggle}>Not a member? Click here to join.</a>
+                        <p className="member__join" onClick={this.context.memberJoinToggle}>Not a member? Click here to join.</p>
                     </li>
                 </ul>
             </form>

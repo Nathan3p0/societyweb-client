@@ -53,3 +53,9 @@
 .memberLogin__form a:hover {
     color: #ddd;
 }
+
+.member__join {
+    margin-top: .5rem;
+    text-decoration: underline;
+    color: #fff;
+}

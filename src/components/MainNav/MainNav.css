@@ -30,3 +30,15 @@
     transform: scale(1.1);
     box-shadow: 1px 1px 5px #333333;
 }
+
+@media all and (max-width: 455px) {
+    .main__nav {
+        flex-direction: column;
+    }
+
+    .main__nav-login button,
+    .main__nav-logout button {
+        margin: .5rem auto;
+        width: 100%;
+    }
+}
