@@ -30,11 +30,11 @@ SocietyWeb provides the key features that I have seen groups rely on and struggl
 
 ## Usage
 ### TeamMember
-> - Login with demo user name: **demoMember** and password: **Password.**.
+> - Login with demo user name: **demoMember** and password: **Password.**
 > - Once logged-in you will be taken to the dashboard page.
 > - You will have the option to view events and RSVP to events listed.
 ### TeamLeader
-> - Login with demo user name: **demoAdmin** and password: **Password.**.
+> - Login with demo user name: **demoAdmin** and password: **Password.**
 > - Once logged-in you will be taken to the dashboard page.
 > - Click on the navigation at the top to choose what feature to use.
 
