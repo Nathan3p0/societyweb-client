@@ -7,7 +7,7 @@ const FeatureCard = (props) => {
         <div className="features__main-card">
             <FontAwesomeIcon icon={props.icon} className="icon" size='6x' />
             <h3>{props.title}</h3>
-            <p>Descript Here</p>
+            <p>{props.description}</p>
         </div>
     );
 }

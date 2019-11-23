@@ -18,6 +18,13 @@
 
 .features__main-card h3 {
     font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.features__main-card p {
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 .features__main-card .icon {
