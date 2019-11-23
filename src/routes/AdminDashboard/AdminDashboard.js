@@ -19,6 +19,7 @@ class AdminDashboard extends Component {
 
     state = {
         error: null,
+        success: false,
         emails: []
     }
 
@@ -67,10 +68,10 @@ class AdminDashboard extends Component {
     }
 
     handleAddEmail = (email, e) => {
-        const {emails} = this.state;
-        if(emails.includes(email)) {
+        const { emails } = this.state;
+        if (emails.includes(email)) {
             this.setState({
-              error: 'This email is already added.'
+                error: 'This email is already added.'
             })
         } else {
             this.setState({
@@ -78,6 +79,39 @@ class AdminDashboard extends Component {
                 emails: [...this.state.emails, email]
             })
         }
+    }
+
+    handleEmailFormSubmit = (e) => {
+        e.preventDefault();
+
+        const { from, subject, text } = e.target;
+
+        const message = {
+            to: this.state.emails,
+            from: from.value,
+            subject: subject.value,
+            text: text.value
+        }
+
+        this.setState({ error: null });
+
+        AdminApiService.postNewEmail(message)
+            .then(res => {
+
+                from.value = '';
+                subject.value = '';
+                text.value = '';
+
+                this.setState({
+                    success: true,
+                    emails: []
+                })
+            })
+            .catch(err => {
+                this.setState({
+                    error: err.message
+                })
+            })
     }
 
     render() {
@@ -117,7 +151,7 @@ class AdminDashboard extends Component {
                                     <MembersList limit={false} addEmail={this.handleAddEmail} />
                                 </div>
                                 <div className="admin__alerts-form">
-                                    <NewAlertForm error={this.state.error} handleSubmit={this.handleNewAlertSubmit} />
+                                    <NewAlertForm error={this.state.error} success={this.state.success} handleSubmit={this.handleEmailFormSubmit} emails={this.state.emails} />
                                 </div>
                             </section>
                         </Route>

@@ -2,15 +2,23 @@ import React from 'react';
 import './NewAlertForm.css'
 
 const NewAlertForm = (props) => {
+    const { emails, error } = props;
+
+    const emailList = emails.map((email, i) =>
+        <li key={i} className="email__delete"><span>{email.toString()}</span></li>
+    )
+
     return (
         <form onSubmit={props.handleSubmit} className="admin__alerts-form">
             <h3>Send a new team alert:</h3>
             <p>Select team members to email by clicking on their cards.</p>
             <ul className="newAlert__form">
+                {error && <p className="error">{error}</p>}
+                {props.success && <p>Your email was send successfully!</p>}
                 <li className="admin__alerts-form--email">
                     <p>To:</p>
                     <ul>
-                        <li><span className="email__delete">email@email.com</span> <button type="button">X</button></li>
+                        {emailList}
                     </ul>
                 </li>
                 <li>
