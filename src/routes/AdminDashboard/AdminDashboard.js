@@ -18,7 +18,8 @@ class AdminDashboard extends Component {
     static contextType = TeamInfoContext;
 
     state = {
-        error: null
+        error: null,
+        emails: []
     }
 
     componentDidMount() {
@@ -65,6 +66,20 @@ class AdminDashboard extends Component {
         history.push(destination);
     }
 
+    handleAddEmail = (email, e) => {
+        const {emails} = this.state;
+        if(emails.includes(email)) {
+            this.setState({
+              error: 'This email is already added.'
+            })
+        } else {
+            this.setState({
+                error: null,
+                emails: [...this.state.emails, email]
+            })
+        }
+    }
+
     render() {
         const { events } = this.context
 
@@ -99,7 +114,7 @@ class AdminDashboard extends Component {
                         <Route path="/admin/alerts">
                             <section className="admin__alerts">
                                 <div className="admin__alerts-members">
-                                    <MembersList limit={false} />
+                                    <MembersList limit={false} addEmail={this.handleAddEmail} />
                                 </div>
                                 <div className="admin__alerts-form">
                                     <NewAlertForm error={this.state.error} handleSubmit={this.handleNewAlertSubmit} />

@@ -3,13 +3,15 @@ import './NewAlertForm.css'
 
 const NewAlertForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit} className="admin__events-form">
+        <form onSubmit={props.handleSubmit} className="admin__alerts-form">
             <h3>Send a new team alert:</h3>
             <p>Select team members to email by clicking on their cards.</p>
             <ul className="newAlert__form">
-                <li>
-                    <label htmlFor="to">To:</label>
-                    <input type="text" name="to" id="to" placeholder="Member Email" required />
+                <li className="admin__alerts-form--email">
+                    <p>To:</p>
+                    <ul>
+                        <li><span className="email__delete">email@email.com</span> <button type="button">X</button></li>
+                    </ul>
                 </li>
                 <li>
                     <label htmlFor="from">From:</label>

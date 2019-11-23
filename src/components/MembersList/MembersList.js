@@ -3,14 +3,14 @@ import MembersListItem from '../MembersListItem/MembersListItem';
 import TeamInfoContext from '../../context/TeamInfoContext';
 import './MembersList.css'
 
-const MembersList = () => {
+const MembersList = (props) => {
     const value = useContext(TeamInfoContext);
     let memberList
     if (value.members.length === 0) {
         memberList = <p className="error">{value.error}</p>
     } else {
-        memberList = value.members.map(member =>
-            <MembersListItem key={member.id} username={member.username} fullname={member.full_name} phone={member.phone} email={member.email} />
+        memberList = value.members.map((member, i) =>
+            <MembersListItem key={i} username={member.username} fullname={member.full_name} phone={member.phone} email={member.email} addEmail={props.addEmail} />
         )
     }
     return (

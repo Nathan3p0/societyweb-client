@@ -1,5 +1,5 @@
 .admin__alerts-form {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     width: 500px;
     max-width: 100%;
     padding: 1rem;
@@ -47,4 +47,13 @@
 .newAlert__form li input {
     padding: 15px;
     border: none;
+}
+
+.admin__alerts-form--email {
+    display: flex;
+    justify-content: space-between;
+}
+
+.email__delete {
+    margin-right: 1rem;
 }
