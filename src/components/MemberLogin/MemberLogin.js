@@ -60,8 +60,8 @@ class MemberLogin extends Component {
                         <input type="text" name="username" id="username" placeholder="Username" required />
                     </li>
                     <li>
-                        <label htmlFor="password">Password:</label>
-                        <input type="password" name="password" id="password" placeholder="Password" required />
+                        <label htmlFor="member-password">Password:</label>
+                        <input type="password" name="password" id="member-password" placeholder="Password" required />
                     </li>
                     <li>
                         <button type="submit">Login</button>

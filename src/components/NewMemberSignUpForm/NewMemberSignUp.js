@@ -64,8 +64,8 @@ class NewMemberSignUp extends Component {
                             <input type="text" name="username" id="username" required />
                         </li>
                         <li>
-                            <label htmlFor="password">Password:</label>
-                            <input type="password" name="password" id="password" required />
+                            <label htmlFor="new-member-password">Password:</label>
+                            <input type="password" name="password" id="new-member-password" required />
                         </li>
                         <li>
                             <label htmlFor="email">Email:</label>

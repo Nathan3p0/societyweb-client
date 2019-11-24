@@ -14,8 +14,8 @@ const NewTeamSignupForm = (props) => {
                     <input type="text" name="username" id="username" placeholder="Username" required />
                 </li>
                 <li>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" id="password" placeholder="Password" required />
+                    <label htmlFor="team-signup-password">Password:</label>
+                    <input type="password" name="password" id="team-signup-password" placeholder="Password" required />
                 </li>
                 <li>
                     <label htmlFor="email">Email:</label>
