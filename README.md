@@ -30,11 +30,11 @@ SocietyWeb provides the key features that I have seen groups rely on and struggl
 
 ## Usage
 ### TeamMember
-> - Login with demo user name: **demoMember** and password: **Password1.**
+> - Login with demo user name: **demoMember** and password: **Password1.** or click the DEMO button
 > - Once logged-in you will be taken to the dashboard page.
 > - You will have the option to view events and RSVP to events listed.
 ### TeamLeader
-> - Login with demo user name: **demoAdmin** and password: **Password1.**
+> - Login with demo user name: **demoAdmin** and password: **Password1.** or click the DEMO button
 > - Once logged-in you will be taken to the dashboard page.
 > - Click on the navigation at the top to choose what feature to use.
 
@@ -47,10 +47,7 @@ SocietyWeb provides the key features that I have seen groups rely on and struggl
 - Express
 - PostgreSQL
 - Mocha/Chai/Jest
-- Twilio API
+- Twilio SMS API
+- Twilio SendGrid API
 - Heroku
 - Surge
-
-## Contributing
-
-See [CONTRIBUTING.md](https://github.com/) for contribution guidelines.
