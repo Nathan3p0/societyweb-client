@@ -42,6 +42,27 @@ class MemberLogin extends Component {
             })
     }
 
+    handleMemberDemoLogin = () => {
+        this.setState({
+            error: null
+        });
+
+        AuthApiService.postLogin({
+            username: 'demoMember',
+            password: 'Password1.'
+        })
+            .then(res => {
+                this.setState({
+                    redirect: true
+                })
+            })
+            .catch(res => {
+                this.setState({
+                    error: res.error
+                })
+            })
+    }
+
     render() {
 
         if (this.state.redirect) {
@@ -63,8 +84,9 @@ class MemberLogin extends Component {
                         <label htmlFor="member-password">Password:</label>
                         <input type="password" name="password" id="member-password" placeholder="Password" required />
                     </li>
-                    <li>
+                    <li className="button__container">
                         <button type="submit">Login</button>
+                        <button type="button" onClick={this.handleMemberDemoLogin}>Demo</button>
                     </li>
                     <li>
                         <p className="member__join" onClick={this.context.memberJoinToggle}>Not a member? Click here to join.</p>

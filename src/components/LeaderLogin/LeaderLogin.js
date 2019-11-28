@@ -42,6 +42,27 @@ class LeaderLogin extends Component {
             })
     }
 
+    handleLeaderDemoLogin = () => {
+        this.setState({
+            error: null
+        });
+
+        AuthApiService.postLogin({
+            username: 'demoAdmin',
+            password: 'Password1.'
+        })
+            .then(res => {
+                this.setState({
+                    redirect: true
+                })
+            })
+            .catch(res => {
+                this.setState({
+                    error: res.error
+                })
+            })
+    }
+
     render() {
         const { error } = this.state;
 
@@ -62,8 +83,9 @@ class LeaderLogin extends Component {
                         <label htmlFor="leader-password">Password:</label>
                         <input type="password" name="password" id="leader-password" placeholder="Password" required />
                     </li>
-                    <li>
+                    <li className="button__container">
                         <button type="submit">Login</button>
+                        <button type="button" onClick={this.handleLeaderDemoLogin}>Demo</button>
                     </li>
                 </ul>
             </form>

@@ -23,8 +23,15 @@
     flex: 1 0 220px;
 }
 
+.button__container {
+    justify-content: flex-end;
+}
+
+.leaderLogin__form li button:first-of-type {
+    margin-right: .5rem;
+}
+
 .leaderLogin__form li button {
-    margin-left: auto;
     padding: 12px 24px;
     border: none;
     background: #4ab3dd;
