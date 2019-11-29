@@ -5,7 +5,20 @@ import './NewTeamSignUpSection.css'
 
 class NewTeamSignUpSection extends Component {
     state = {
-        error: null
+        error: null,
+        full_name: '',
+        username: '',
+        password: '',
+        email: '',
+        phone: '',
+        group_name: ''
+    }
+
+    handleInputChange = (e) => {
+        const {name, value} = e.target;
+        this.setState({
+            [name]: value
+        })
     }
 
     handleTeamSignupSubmit = (e) => {
@@ -15,27 +28,27 @@ class NewTeamSignUpSection extends Component {
             success: null
         });
 
-        const { fullname, username, password, email, phone, group_name } = e.target;
+        const { fullname, username, password, email, phone, group_name } = this.state;
 
         const newTeam = {
-            full_name: fullname.value,
-            username: username.value,
-            password: password.value,
-            email: email.value,
-            phone: phone.value,
-            group_name: group_name.value
+            full_name: fullname,
+            username: username,
+            password: password,
+            email: email,
+            phone: phone,
+            group_name: group_name
         }
 
         AuthApiService.postNewTeam(newTeam)
             .then(res => {
-                fullname.value = '';
-                username.value = '';
-                password.value = '';
-                email.value = '';
-                phone.value = '';
-                group_name.value = '';
                 this.setState({
-                    success: true
+                    success: true,
+                    fullname: '',
+                    username: '',
+                    password: '',
+                    email: '',
+                    phone: '',
+                    group_name: '',
                 })
             })
             .catch(res => {
@@ -61,7 +74,16 @@ class NewTeamSignUpSection extends Component {
                     <h3>New Team Signup</h3>
                     {error && <p className="error">{error}</p>}
                     {success && <p>Signup was successful. Click Leader Login at the top.</p>}
-                    <NewTeamSignupForm handleSubmit={this.handleTeamSignupSubmit} />
+                    <NewTeamSignupForm
+                        handleInputChange={this.handleInputChange}
+                        handleSubmit={this.handleTeamSignupSubmit}
+                        name={this.state.full_name}
+                        username={this.state.username}
+                        password={this.state.password}
+                        email={this.state.email}
+                        phone={this.state.phone}
+                        team={this.state.group_name}
+                    />
                 </div>
             </section>
         );

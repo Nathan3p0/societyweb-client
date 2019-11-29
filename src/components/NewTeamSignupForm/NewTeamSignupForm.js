@@ -7,27 +7,27 @@ const NewTeamSignupForm = (props) => {
             <ul className="signup__form">
                 <li>
                     <label htmlFor="fullname">Full Name:</label>
-                    <input type="text" name="full_name" id="fullname" placeholder="Name" required />
+                    <input type="text" name="full_name" id="fullname" placeholder="Name" value={props.name} onChange={props.handleInputChange} required />
                 </li>
                 <li>
                     <label htmlFor="username">Username:</label>
-                    <input type="text" name="username" id="username" placeholder="Username" required />
+                    <input type="text" name="username" id="username" placeholder="Username" value={props.username} onChange={props.handleInputChange} required />
                 </li>
                 <li>
                     <label htmlFor="team-signup-password">Password:</label>
-                    <input type="password" name="password" id="team-signup-password" placeholder="Password" required />
+                    <input type="password" name="password" id="team-signup-password" placeholder="Password" value={props.password} onChange={props.handleInputChange} required />
                 </li>
                 <li>
                     <label htmlFor="email">Email:</label>
-                    <input type="text" name="email" id="email" placeholder="Email" required />
+                    <input type="text" name="email" id="email" placeholder="Email" value={props.email} onChange={props.handleInputChange} required />
                 </li>
                 <li>
                     <label htmlFor="phone">Phone Number:</label>
-                    <input type="tel" name="phone" id="phone" placeholder="123-455-0505" required />
+                    <input type="tel" name="phone" id="phone" placeholder="123-455-0505" value={props.phone} onChange={props.handleInputChange} required />
                 </li>
                 <li>
                     <label htmlFor="group_name">Team Name</label>
-                    <input type="text" name="group_name" id="group_name" placeholder="Team Name" required />
+                    <input type="text" name="group_name" id="group_name" placeholder="Team Name" value={props.team} onChange={props.handleInputChange} required />
                 </li>
                 <li>
                     <button type="submit">Sign Up</button>
