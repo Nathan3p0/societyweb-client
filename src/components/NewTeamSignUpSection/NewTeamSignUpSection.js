@@ -11,7 +11,8 @@ class NewTeamSignUpSection extends Component {
         password: '',
         email: '',
         phone: '',
-        group_name: ''
+        group_name: '',
+        formErrors: {}
     }
 
     handleInputChange = (e) => {
@@ -19,6 +20,70 @@ class NewTeamSignUpSection extends Component {
         this.setState({
             [name]: value
         })
+    }
+
+    handleFormValidation = () => {
+        const passwordCheck = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.!@#$%^&])[\S]+/;
+        const emailCheck = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+        const phoneCheck = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})/;
+        const { full_name, username, password, email, phone, group_name } = this.state;
+
+        let formErrors = {};
+        let validForm = true;
+
+        if (!full_name) {
+            validForm = false;
+            formErrors['fullNameError'] = 'Full Name is required';
+        }
+
+        if (!username) {
+            validForm = false;
+            formErrors['usernameError'] = 'Username is required'
+        }
+
+        if (!password) {
+            validForm = false;
+            formErrors['passwordError'] = 'Password is required';
+        } else if (!passwordCheck.test(password)) {
+            validForm = false;
+            formErrors['passwordError'] = 'Password must contain 1 Upper & Lower Case Letter, Number and Special Character'
+        } else if (password.length < 8) {
+            validForm = false;
+            formErrors['passwordError'] = 'Password must be longer than 8 characters'
+        } else if (password.length > 72) {
+            validForm = false;
+            formErrors['passwordError'] = 'Password must be less than 72 characters'
+        } else if (password.startsWith(' ') || password.endsWith(' ')) {
+            validForm = false;
+            formErrors['passwordError'] = 'Password must not start or end with empty spaces'
+        }
+
+        if (!email) {
+            validForm = false;
+            formErrors['emailError'] = 'Email is required';
+        } else if (!emailCheck.test(email)) {
+            validForm = false;
+            formErrors['emailError'] = 'Invalid email format';
+        }
+
+        if (!phone) {
+            validForm = false;
+            formErrors['phoneError'] = 'Phone is required';
+        } else if (!phoneCheck.test(phone)) {
+            validForm = false;
+            formErrors['phoneError'] = 'Invalid phone number';
+        }
+
+        if (!group_name) {
+            validForm = false;
+            formErrors['teamError'] = 'Team Name is required';
+        }
+
+        this.setState({
+            formErrors: formErrors
+        });
+
+        return validForm;
     }
 
     handleTeamSignupSubmit = (e) => {
@@ -30,6 +95,7 @@ class NewTeamSignUpSection extends Component {
 
         const { fullname, username, password, email, phone, group_name } = this.state;
 
+        if(this.handleFormValidation()) {
         const newTeam = {
             full_name: fullname,
             username: username,
@@ -56,6 +122,7 @@ class NewTeamSignUpSection extends Component {
                     error: res.error
                 })
             })
+        }
     }
 
     render() {
@@ -83,6 +150,7 @@ class NewTeamSignUpSection extends Component {
                         email={this.state.email}
                         phone={this.state.phone}
                         team={this.state.group_name}
+                        formErrors={this.state.formErrors}
                     />
                 </div>
             </section>

@@ -34,3 +34,11 @@
     padding: 15px;
     border: none;
 }
+
+.formError {
+    color: #FB8B24;
+    max-width: 320px;
+    width: 100%;
+    text-align: right;
+    margin-left: auto;
+}
