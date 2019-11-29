@@ -48,3 +48,11 @@
     border: 1px solid #00000025;
     border-radius: 5px;
 }
+
+.formError {
+    color: #FB8B24;
+    max-width: 320px;
+    width: 100%;
+    text-align: right;
+    margin-left: auto;
+}
