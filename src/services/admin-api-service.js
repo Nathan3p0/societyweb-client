@@ -2,6 +2,16 @@ import config from '../config';
 import TokenService from './token-service';
 
 const AdminApiService = {
+    getUserInfo() {
+        return fetch(`${config.API_ENDPOINT}/members/member`, {
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+            .then(res =>
+                (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
+            )
+    },
     getAllEvents() {
         return fetch(`${config.API_ENDPOINT}/events`, {
             headers: {

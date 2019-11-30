@@ -77,8 +77,8 @@ class MemberLogin extends Component {
                     <h3>Team Member Login</h3>
                     {error && <p className="error">{error}</p>}
                     <li>
-                        <label htmlFor="username">Username:</label>
-                        <input type="text" name="username" id="username" placeholder="Username" required />
+                        <label htmlFor="member-username">Username:</label>
+                        <input type="text" name="username" id="member-username" placeholder="Username" required />
                     </li>
                     <li>
                         <label htmlFor="member-password">Password:</label>

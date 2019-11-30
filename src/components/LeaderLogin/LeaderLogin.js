@@ -76,8 +76,8 @@ class LeaderLogin extends Component {
                     <h3>Team Leader Login</h3>
                     {error && <p className="error">{error}</p>}
                     <li>
-                        <label htmlFor="username">Username:</label>
-                        <input type="text" name="username" id="username" placeholder="Username" required />
+                        <label htmlFor="leader-username">Username:</label>
+                        <input type="text" name="username" id="leader-username" placeholder="Username" required />
                     </li>
                     <li>
                         <label htmlFor="leader-password">Password:</label>

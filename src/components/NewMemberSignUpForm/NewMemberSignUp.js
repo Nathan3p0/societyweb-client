@@ -13,6 +13,7 @@ class NewMemberSignUp extends Component {
         email: '',
         phone: '',
         invite_code: '',
+        confirmPassword: '',
         formErrors: {}
     }
 
@@ -27,7 +28,7 @@ class NewMemberSignUp extends Component {
         const passwordCheck = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.!@#$%^&])[\S]+/;
         const emailCheck = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         const phoneCheck = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})/;
-        const { full_name, username, password, email, phone, invite_code } = this.state;
+        const { full_name, username, password, email, phone, invite_code, confirmPassword } = this.state;
 
         let formErrors = {};
         let validForm = true;
@@ -57,6 +58,15 @@ class NewMemberSignUp extends Component {
         } else if (password.startsWith(' ') || password.endsWith(' ')) {
             validForm = false;
             formErrors['passwordError'] = 'Password must not start or end with empty spaces'
+        }
+
+        if(password !== confirmPassword) {
+            validForm = false;
+            formErrors['confirmError'] = 'Passwords do not match'
+            this.setState({
+                password: '',
+                confirmPassword: ''
+            })
         }
 
         if (!email) {
@@ -127,7 +137,7 @@ class NewMemberSignUp extends Component {
 
     render() {
         const { error, success } = this.state;
-        const { fullNameError, usernameError, passwordError, emailError, phoneError, inviteError } = this.state.formErrors;
+        const { fullNameError, usernameError, passwordError, emailError, phoneError, inviteError, confirmError } = this.state.formErrors;
 
         return (
             <>
@@ -151,6 +161,11 @@ class NewMemberSignUp extends Component {
                             <input type="password" name="password" id="new-member-password" value={this.state.password} onChange={this.handleInputChange} placeholder="Password" title="Password must contain 1 Upper & Lower Case Letter, Number and Special Character" required />
                         </li>
                         {passwordError && <li> <p className="formError">{passwordError}</p> </li>}
+                        <li>
+                            <label htmlFor="confirm-password">Confirm Password:</label>
+                            <input type="password" name="confirmPassword" id="confirm-password" value={this.state.confirmPassword} onChange={this.handleInputChange} placeholder="Password" title="Password must contain 1 Upper & Lower Case Letter, Number and Special Character" required />
+                        </li>
+                        {confirmError && <li> <p className="formError">{confirmError}</p> </li>}
                         <li>
                             <label htmlFor="email">Email:</label>
                             <input type="text" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required />

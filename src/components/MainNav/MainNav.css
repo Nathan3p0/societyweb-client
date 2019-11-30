@@ -31,6 +31,10 @@
     box-shadow: 1px 1px 5px #333333;
 }
 
+.main__nav-toggle:hover {
+    cursor: pointer;
+}
+
 @media all and (max-width: 455px) {
     .main__nav {
         flex-direction: column;

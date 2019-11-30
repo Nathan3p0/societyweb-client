@@ -25,6 +25,7 @@ class App extends Component {
       memberJoin: false,
       leaderLogin: false,
       memberLogin: false,
+      main: true,
       userInfo: null,
       events: [],
       members: [],
@@ -40,7 +41,8 @@ class App extends Component {
       this.setState({
         leaderLogin: true,
         memberJoin: false,
-        memberLogin: false
+        memberLogin: false,
+        main: false
       })
     }
   }
@@ -50,7 +52,8 @@ class App extends Component {
       this.setState({
         leaderLogin: false,
         memberJoin: false,
-        memberLogin: true
+        memberLogin: true,
+        main: false
       })
     }
   }
@@ -60,7 +63,19 @@ class App extends Component {
       this.setState({
         leaderLogin: false,
         memberJoin: true,
-        memberLogin: false
+        memberLogin: false,
+        main: false
+      })
+    }
+  }
+
+  mainToggle = () => {
+    if (!this.state.main) {
+      this.setState({
+        leaderLogin: false,
+        memberJoin: false,
+        memberLogin: false,
+        main: true
       })
     }
   }
@@ -83,9 +98,7 @@ class App extends Component {
     AdminApiService.getAllEvents()
       .then(events => {
         this.setState({
-          events: events.events,
-          teamName: events.group,
-          memberName: events.name
+          events: events.events
         })
       })
       .catch(res =>
@@ -111,15 +124,25 @@ class App extends Component {
       )
   }
 
-  setLoginStatus = () => {
-    this.setState(state => ({
-      loggedIn: !state.loggedIn
-    }))
+  fetchAdminInfo = () => {
+    AdminApiService.getUserInfo()
+      .then(info => {
+        this.setState({
+          teamName: info.group_name,
+          memberName: info.name
+        })
+      })
+      .catch(res => {
+        this.setState({
+          error: res.error
+        })
+      })
   }
 
-  setLoginStatusFalse = () => {
+  clearStateOnLogout = () => {
     this.setState({
-      loggedIn: false
+      members: [],
+      events: []
     })
   }
 
@@ -128,18 +151,19 @@ class App extends Component {
       memberJoin: this.state.memberJoin,
       leaderLogin: this.state.leaderLogin,
       memberLogin: this.state.memberLogin,
+      main: this.state.main,
       leaderLoginToggle: this.handleLeaderLoginToggle,
       memberLoginToggle: this.handleMemberLoginToggle,
       memberJoinToggle: this.handleMemberJoinToggle,
       events: this.state.events,
-      loggedIn: this.state.loggedIn,
-      setLoginStatusFalse: this.setLoginStatusFalse
+      clearStateOnLogout: this.clearStateOnLogout
     }
 
     const teamValue = {
       events: this.state.events,
       teamName: this.state.teamName,
       members: this.state.members,
+      fetchAdminInfo: this.fetchAdminInfo,
       fetchAllMembers: this.fetchAllMembers,
       fetchAllEvents: this.fetchAllEvents,
       fetchAllMemberEvents: this.fetchAllMemberEvents,
@@ -151,7 +175,7 @@ class App extends Component {
       <div className='container'>
         <LoginInfoContext.Provider value={loginValue}>
           <TeamInfoContext.Provider value={teamValue}>
-            <MainNav />
+            <MainNav mainToggle={this.mainToggle} />
             <Switch>
               <PublicOnlyRoute exact path={'/'} component={LandingPage} />
               <PrivateRoute path={'/admin'} component={AdminDashboard} />

@@ -63,6 +63,11 @@
     border: 1px solid #33333341;
 }
 
+.eventsignup__form li input:hover,
+.eventsignup__form li label:hover {
+    cursor: pointer;
+}
+
 @media all and (max-width: 600px) {
     .eventsignup__container {
         margin: 1rem 0;

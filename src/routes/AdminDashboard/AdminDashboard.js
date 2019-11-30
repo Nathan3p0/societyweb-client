@@ -24,6 +24,7 @@ class AdminDashboard extends Component {
     }
 
     componentDidMount() {
+        this.context.fetchAdminInfo();
         this.context.fetchAllEvents();
         this.context.fetchAllMembers();
     }

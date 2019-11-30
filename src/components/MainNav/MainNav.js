@@ -9,7 +9,7 @@ class MainNav extends Component {
     state = {}
 
     handleLogout = () => {
-        this.context.setLoginStatusFalse();
+        this.context.clearStateOnLogout();
         TokenService.clearAuthToken();
     }
 
@@ -32,7 +32,7 @@ class MainNav extends Component {
     render() {
         return (
             <nav className="main__nav">
-                <h1>SocietyWeb</h1>
+                {!TokenService.hasAuthToken() ? <h1 className="main__nav-toggle" onClick={this.props.mainToggle}>SocietyWeb</h1> : <h1>SocietyWeb</h1>}
                 {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
             </nav>
         );

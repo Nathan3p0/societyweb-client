@@ -14,7 +14,7 @@ const NewAlertForm = (props) => {
             <p>Select team members to email by clicking on their cards.</p>
             <ul className="newAlert__form">
                 {error && <p className="error">{error}</p>}
-                {props.success && <p>Your email was send successfully!</p>}
+                {props.success && <p>Your email was sent successfully!</p>}
                 <li className="admin__alerts-form--email">
                     <p>To:</p>
                     <ul>

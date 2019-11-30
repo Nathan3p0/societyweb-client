@@ -12,6 +12,7 @@ class NewTeamSignUpSection extends Component {
         email: '',
         phone: '',
         group_name: '',
+        confirmPassword: '',
         formErrors: {}
     }
 
@@ -26,7 +27,7 @@ class NewTeamSignUpSection extends Component {
         const passwordCheck = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.!@#$%^&])[\S]+/;
         const emailCheck = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         const phoneCheck = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})/;
-        const { full_name, username, password, email, phone, group_name } = this.state;
+        const { full_name, username, password, email, phone, group_name, confirmPassword } = this.state;
 
         let formErrors = {};
         let validForm = true;
@@ -56,6 +57,15 @@ class NewTeamSignUpSection extends Component {
         } else if (password.startsWith(' ') || password.endsWith(' ')) {
             validForm = false;
             formErrors['passwordError'] = 'Password must not start or end with empty spaces'
+        }
+
+        if(password !== confirmPassword) {
+            validForm = false;
+            formErrors['confirmError'] = 'Passwords do not match'
+            this.setState({
+                password: '',
+                confirmPassword: ''
+            })
         }
 
         if (!email) {
@@ -93,11 +103,11 @@ class NewTeamSignUpSection extends Component {
             success: null
         });
 
-        const { fullname, username, password, email, phone, group_name } = this.state;
+        const { full_name, username, password, email, phone, group_name } = this.state;
 
         if(this.handleFormValidation()) {
         const newTeam = {
-            full_name: fullname,
+            full_name: full_name,
             username: username,
             password: password,
             email: email,
@@ -109,7 +119,7 @@ class NewTeamSignUpSection extends Component {
             .then(res => {
                 this.setState({
                     success: true,
-                    fullname: '',
+                    full_name: '',
                     username: '',
                     password: '',
                     email: '',
@@ -150,6 +160,7 @@ class NewTeamSignUpSection extends Component {
                         email={this.state.email}
                         phone={this.state.phone}
                         team={this.state.group_name}
+                        confirm={this.state.confirmPassword}
                         formErrors={this.state.formErrors}
                     />
                 </div>

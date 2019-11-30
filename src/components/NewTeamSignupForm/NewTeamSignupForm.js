@@ -3,7 +3,7 @@ import './NewTeamSignupForm.css';
 
 const NewTeamSignupForm = (props) => {
 
-    const { fullNameError, usernameError, passwordError, emailError, phoneError, teamError } = props.formErrors;
+    const { fullNameError, usernameError, passwordError, emailError, phoneError, teamError, confirmError } = props.formErrors;
 
     return (
         <form onSubmit={props.handleSubmit}>
@@ -23,6 +23,11 @@ const NewTeamSignupForm = (props) => {
                     <input type="password" name="password" id="team-signup-password" placeholder="Password" value={props.password} onChange={props.handleInputChange} title="Password must contain 1 Upper & Lower Case Letter, Number and Special Character" required />
                 </li>
                 {passwordError && <li> <p className="formError">{passwordError}</p> </li>}
+                <li>
+                    <label htmlFor="confirm-password">Confirm Password:</label>
+                    <input type="password" name="confirmPassword" id="confirm-password" placeholder="Confirm Password" value={props.confirm} onChange={props.handleInputChange} title="Password must contain 1 Upper & Lower Case Letter, Number and Special Character" required />
+                </li>
+                {confirmError && <li> <p className="formError">{confirmError}</p> </li>}
                 <li>
                     <label htmlFor="email">Email:</label>
                     <input type="text" name="email" id="email" placeholder="Email" value={props.email} onChange={props.handleInputChange} required />
