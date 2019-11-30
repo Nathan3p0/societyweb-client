@@ -29,7 +29,7 @@ const EventPage = (props) => {
     const handleGoBack = () => {
         history.goBack();
     }
-
+    const date = new Date(event.event_date)
     return (
         <>
             <section className="eventPage__main">
@@ -37,7 +37,7 @@ const EventPage = (props) => {
                     {error && <p className="error">{error}</p>}
                     <h3>Event: {event.event_name}</h3>
                     <div className="eventPage__event-info--content">
-                        <p><strong>Date:</strong> {moment(event.event_date).format('MMMM Do YYYY')}</p>
+                        <p><strong>Date:</strong> {moment(date).format('MMMM Do YYYY')}</p>
                         <p><strong>Time:</strong> {event.event_time}</p>
                         <p><strong>Location:</strong> {event.event_location}</p>
                         <p><strong>Description:</strong> {event.event_description}</p>

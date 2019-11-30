@@ -66,7 +66,7 @@ const AdminApiService = {
             )
     },
     inviteNewMemberSms(phone) {
-        return fetch(`${config.API_ENDPOINT}/message/invite`, {
+        return fetch(`${config.API_ENDPOINT}/message/invite/sms`, {
             method: 'POST',
             headers: {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -76,6 +76,19 @@ const AdminApiService = {
         })
             .then(res =>
                 (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
+            )
+    },
+    inviteNewMemberEmail(email) {
+        return fetch(`${config.API_ENDPOINT}/message/invite/email`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({email: email})
+        })
+        .then(res =>
+            (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json()
             )
     },
     postNewEmail(msg) {

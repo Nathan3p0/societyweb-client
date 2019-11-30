@@ -4,8 +4,20 @@ import './InviteWidget.css';
 
 class InviteWidget extends Component {
     state = {
-        error: null,
-        success: false
+        phoneError: null,
+        emailError: null,
+        phoneSuccess: false,
+        emailSuccess: false,
+        phone: '',
+        email: ''
+    }
+
+    handleInputChange = (e) => {
+        const {name, value} = e.target;
+
+        this.setState({
+            [name]: value
+        })
     }
 
     validatePhoneNumber = (phone) => {
@@ -14,50 +26,97 @@ class InviteWidget extends Component {
         return phoneRegEx.test(phone);
     }
 
-    handleInviteSubmit = (e) => {
+    validateEmail = (email) => {
+        const emailCheck = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+
+        return emailCheck.test(email);
+    }
+
+    handleEmailInviteSubmit = (e) => {
         e.preventDefault();
 
-        const { phone } = e.target;
-        const { value } = phone;
+        const { email } = this.state;
 
-        if (!this.validatePhoneNumber(value)) {
+        if (!this.validateEmail(email)) {
             this.setState({
-                error: 'Please enter a valid phone number'
+                emailError: 'Please enter a valid email'
             })
         } else {
-
-            AdminApiService.inviteNewMemberSms(value)
+            AdminApiService.inviteNewMemberEmail(email)
                 .then(res => {
-                    phone.value = '';
                     this.setState({
-                        success: true
+                        emailSuccess: true,
+                        email: ''
                     })
                 })
                 .catch(res => {
                     this.setState({
-                        error: res.error
+                        emailError: res.error
+                    })
+                })
+        }
+    }
+
+    handleSmsInviteSubmit = (e) => {
+        e.preventDefault();
+
+        const {phone} = this.state
+
+        if (!this.validatePhoneNumber(phone)) {
+            this.setState({
+                phoneError: 'Please enter a valid phone number'
+            })
+        } else if (phone !== 7346735101 || 734 / -673 / -5101) {
+            this.setState({
+                phoneError: 'SMS Invite only works with authorized numbers during Trial.'
+            })
+        } else {
+            AdminApiService.inviteNewMemberSms(phone)
+                .then(res => {
+                    this.setState({
+                        phoneSuccess: true,
+                        phone: ''
+                    })
+                })
+                .catch(res => {
+                    this.setState({
+                        phoneError: res.error
                     })
                 })
         }
     }
 
     render() {
-        const { error, success } = this.state
+        const { phoneError, emailError, phoneSuccess, emailSuccess } = this.state;
         return (
             <section className="inviteWidget__container">
                 <h3 className="inviteWidget__container-header">Invite</h3>
                 <div className="inviteWidget__container-content">
                     <p>Simply enter your new member's phone number and we will send them an invite.</p>
-                    <form onSubmit={this.handleInviteSubmit}>
+                    <form onSubmit={this.handleEmailInviteSubmit}>
                         <ul className="inviteWidget__form">
-                            {error && <p className="error">{error}</p>}
-                            {success && <p className="success">Your invite was sent successfully!</p>}
+                            {emailError && <p className="error">{emailError}</p>}
+                            {emailSuccess && <p className="success">Your invite was sent successfully!</p>}
                             <li>
-                                <label htmlFor="invite">Phone Number:</label>
-                                <input type="tel" name="phone" id="invite" placeholder="123-555-0505" required />
+                                <label htmlFor="email-invite">Email:</label>
+                                <input type="email" name="email" id="email-invite" placeholder="john.doe@gmail.com" value={this.state.email} onChange={this.handleInputChange} required />
                             </li>
                             <li>
-                                <button type="submit">Send Invite</button>
+                                <button type="submit">Send Email Invite</button>
+                            </li>
+                        </ul>
+                    </form>
+                    <hr />
+                    <form onSubmit={this.handleSmsInviteSubmit}>
+                        <ul className="inviteWidget__form">
+                        {phoneError && <p className="error">{phoneError}</p>}
+                            {phoneSuccess && <p className="success">Your invite was sent successfully!</p>}
+                            <li>
+                                <label htmlFor="phone-invite">Phone Number:</label>
+                                <input type="tel" name="phone" id="phone-invite" placeholder="123-555-0505" value={this.state.phone} onChange={this.handleInputChange} required />
+                            </li>
+                            <li>
+                                <button type="submit">Send SMS Invite</button>
                             </li>
                         </ul>
                     </form>

@@ -12,7 +12,17 @@
 .admin__nav li a {
     text-decoration: none;
     color: #fff;
+    font-size: 1.2rem;
 }
+
+.admin__nav .selected:before {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.404);
+    content: '>> ';
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
 
 @media all and (max-width: 600px) {
     .admin__nav {
@@ -20,6 +30,10 @@
     }
 
     .admin__nav > li {
-        flex-basis: 50%;
+        margin: 0;
+        flex-basis: 100%;
+        padding: 1rem;
+        border-top: 1px solid #333333;
     }
+
 }
